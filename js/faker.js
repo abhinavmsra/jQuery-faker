@@ -62,16 +62,15 @@
                 $.each(options, function (key, value) {
                     if (value !== null && key !== 'except') {
                         var element = $('[name="' + key + '"]')[0];
+                        var objFaker = new Faker();
                         if ($.type(value) === 'array') {
-                            specifiedOption.push(value);
-                            $.merge(specifiedOption,value);
-                            $(element).val(value[1]);
-                        } else {
-                            specifiedOption.push(value);
-                            debugger;
-                            var objFaker = new Faker();
-                            $(element).val(objFaker.fetch(value));
+                            specifiedOption.push(key);
+                            $(element).val(objFaker.fetch(undefined, value));
 
+                        } else {
+                            specifiedOption.push(key);
+                            debugger;
+                            $(element).val(objFaker.fetch(value));
                         }
                     }
 
@@ -101,22 +100,22 @@
  * */
 function Faker() {
 
-  // jQuery reference to the faker dictionary
-  var $dictionaryRef = '$.fakifyDictionary.';
+    // jQuery reference to the faker dictionary
+    var $dictionaryRef = '$.fakifyDictionary.';
 
-  // minimum indexing value from the array
-  var lowerIndex = 0;
-  var emailSeparator = '@';
+    // minimum indexing value from the array
+    var lowerIndex = 0;
+    var emailSeparator = '@';
 
-  /*
-   *  Fetches the bestMatch from dictionary or custom function
-   *  based on the key passed
-   *
-   *  @param key [String], a properly formatted string used as a key
-   *   to index the dictionary or call the custom functions
-   *
-   *  @return [String], bestMatch to fill the form
-   * */
+    /*
+     *  Fetches the bestMatch from dictionary or custom function
+     *  based on the key passed
+     *
+     *  @param key [String], a properly formatted string used as a key
+     *   to index the dictionary or call the custom functions
+     *
+     *  @return [String], bestMatch to fill the form
+     * */
     this.fetch = function (key, domain) {
         var penetrationDepth = $dictionaryRef + key;
         var applicableDomain = eval(penetrationDepth);
@@ -128,56 +127,59 @@ function Faker() {
         }
     };
 
-  /*
-   * Implements the custom fill-up logic for keys not matched to the
-   * dictionary
-   *
-   * @param key [String], a properly formatted string used as a key
-   *   to implement the required logic
-   *
-   * @return [String], bestMatch to fill the form
-   * */
-  var customExtraction = function (key) {
-    var bestMatch = [];
-    switch (key) {
-      case 'name.fullName':
-        Object.keys($.fakifyDictionary.name).forEach(function (index) {
-          bestMatch.push(getMeValueOf('name.' + index));
-        });
-        break;
-      case 'email':
-        var firstName = getMeValueOf('name.firstName').toLowerCase();
-        var lastName = getMeValueOf('name.lastName').toLowerCase();
-        var localPart = firstName + lastName;
-        var domainPart = getMeValueOf('domainName');
-        bestMatch.push(localPart + emailSeparator + domainPart);
-        break;
-    }
-    return bestMatch.join(' ');
-  };
+    /*
+     * Implements the custom fill-up logic for keys not matched to the
+     * dictionary
+     *
+     * @param key [String], a properly formatted string used as a key
+     *   to implement the required logic
+     *
+     * @return [String], bestMatch to fill the form
+     * */
+    var customExtraction = function (key, domain) {
+        var bestMatch = [];
+        switch (key) {
+            case 'name.fullName':
+                Object.keys($.fakifyDictionary.name).forEach(function (index) {
+                    bestMatch.push(getMeValueOf('name.' + index));
+                });
+                break;
+            case 'email':
+                var firstName = getMeValueOf('name.firstName').toLowerCase();
+                var lastName = getMeValueOf('name.lastName').toLowerCase();
+                var localPart = firstName + lastName;
+                var domainPart = getMeValueOf('domainName');
+                bestMatch.push(localPart + emailSeparator + domainPart);
+                break;
+            case undefined:
+                bestMatch.push(getMeValueOf(null, domain));
+                break;
+        }
+        return bestMatch.join(' ');
+    };
 
-  /*
-   * Returns a random integer within a defined range
-   *
-   * @param max [Integer], upper-limit of the range
-   * @param min [Integer], lower-limit of the range
-   *
-   * @return [Integer], a pseudo-random integer within the desired range
-   * */
-  var getRandomArbitrary = function (max, min) {
-    return Math.floor((Math.random() * max) + min);
-  };
+    /*
+     * Returns a random integer within a defined range
+     *
+     * @param max [Integer], upper-limit of the range
+     * @param min [Integer], lower-limit of the range
+     *
+     * @return [Integer], a pseudo-random integer within the desired range
+     * */
+    var getRandomArbitrary = function (max, min) {
+        return Math.floor((Math.random() * max) + min);
+    };
 
-  /*
-  *  Returns the bestMatch for the key
-  *
-  *  @param index [String], indexing for the database
-  *  @return [String], bestMatch for the element
-  * */
+    /*
+     *  Returns the bestMatch for the key
+     *
+     *  @param index [String], indexing for the database
+     *  @return [String], bestMatch for the element
+     * */
 
     var getMeValueOf = function (index, customArray) {
         var domain = [];
-        if(customArray == undefined) {
+        if (customArray == undefined) {
             domain = eval($dictionaryRef + index);
         }
         else {
@@ -186,7 +188,7 @@ function Faker() {
         var seedIndex = getRandomArbitrary((domain.length - 1), lowerIndex);
         return domain[seedIndex];
     };
-
+}
 $.fakifyDictionary = {
   name: {
     firstName: ["Bibek", "Hari", "Shyam", "Shiva", "Ram"],
