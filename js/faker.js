@@ -9,6 +9,7 @@ function Faker() {
 
   // minimum indexing value from the array
   var lowerIndex = 0;
+
   /*
   *  Fetches the bestMatch from dictionary or custom function
   *  based on the key passed
