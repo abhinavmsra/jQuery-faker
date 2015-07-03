@@ -8,6 +8,5 @@
             'customer[username]': 'name.firstName',
             'except': ['customer[mname]', 'customer[mname]']
         });
-        debugger;
     });
 })();

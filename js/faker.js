@@ -1,4 +1,5 @@
-;(function ($, window, document, undefined) {
+;
+(function ($, window, document, undefined) {
     'use strict';
     $.fn.fakify = function (options) {
         var $this = this[0];
@@ -76,20 +77,19 @@
 
             $('#' + $this.id + ' input[type!=hidden]').each(function () {
                 if (($.inArray(this.name, excludeOption) < 0) && ($.inArray(this.name, specifiedOption) < 0)) {
-                    $.each(faker, recurse.bind(null, '', this));
+                    if ($(this).attr('type').toLowerCase() === 'checkbox') {
+                        $(this).prop('checked', Faker.randBool());
+                    } else {
+                        $.each(faker, recurse.bind(null, '', this));
+                    }
                 }
             });
 
-            //$('#' + $this.id + ' :input:checkbox').each(function () {
-            //    if ($.inArray(this.name, excludeOption) < 0) {
-            //        debugger;
-            //    }
-            //});
-
-
+            var radioArray = $('#' + $this.id + ' input[type=radio]');
+            $(radioArray[Faker.randInt( radioArray.length - 1 ,0)]).attr('checked',true);
 
             function formatName(name) {
-                return name.substring(name.lastIndexOf("[")+1, name.lastIndexOf("]"));
+                return name.substring(name.lastIndexOf("[") + 1, name.lastIndexOf("]"));
             }
         });
     }
@@ -172,7 +172,7 @@ function Faker() {
  *  @return [String], bestMatch to fill the form
  * */
 
- Faker.fetch = function (key, domain) {
+Faker.fetch = function (key, domain) {
     var objFaker = new Faker();
     var penetrationDepth = objFaker.$dictionaryRef + key;
     var applicableDomain = eval(penetrationDepth);
@@ -202,8 +202,9 @@ Faker.randInt = function (max, min) {
  *
  * @return [Boolean]
  */
-Faker.randBool = function() {
-    return !this.randInt(0, 1);
+Faker.randBool = function () {
+    return !(+new Date() % 2);
+    ;
 };
 
 $.fakifyDictionary = {
