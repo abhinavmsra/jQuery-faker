@@ -37,19 +37,19 @@
                 },
                 email: ['email', 'mailto', 'free_email', 'internet_email']
             };
-            var recurse = function (mappedKey, search, element, key, val) {
+            var recurse = function (mappedKey, element, key, val) {
                 if ($.type(val) === 'array') {
-                    if ($.inArray(formatName(search), val) >= 0) {
+                    if ($.inArray(formatName(element.name), val) >= 0) {
                         mappedKey += key;
                         var fakerObj = new Faker();
-                        $('[name="' + search + '"]').val(fakerObj.fetch(mappedKey));
+                        $('[name="' + element.name + '"]').val(fakerObj.fetch(mappedKey));
                     }
                     else {
                         mappedKey = '';
                     }
                 } else {
                     mappedKey += key + '.';
-                    $.each(val, recurse.bind(null, mappedKey, search, element));
+                    $.each(val, recurse.bind(null, mappedKey, element));
                 }
             };
 
@@ -78,7 +78,7 @@
 
             $('#' + $this.id + ' :input').each(function () {
                 if (($.inArray(this.name, excludeOption) < 0) && ($.inArray(this.name, specifiedOption) < 0)) {
-                    $.each(faker, recurse.bind(null, '', this.name, this));
+                    $.each(faker, recurse.bind(null, '', this));
                 }
             });
 

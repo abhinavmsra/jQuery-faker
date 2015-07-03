@@ -3,9 +3,8 @@
  */
 ;(function () {
     $(document).ready(function () {
-        $('#form1').fakify({
+        $('#form').fakify({
             '[customer][state]': 'name.fullName',
-            '[customer][fname]': ['sanjeeb','bibhusan','satish'],
             'except': ['[customer][mname]', 'address_2', 'website']
         });
     });
