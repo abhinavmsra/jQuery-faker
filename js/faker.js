@@ -1,4 +1,3 @@
-
 /*
 * Main Engine to generate fake data
 * based on the name of elements
@@ -8,6 +7,8 @@ function Faker() {
   // jQuery reference to the faker dictionary
   var $dictionaryRef = '$.fakifyDictionary.';
 
+  // minimum indexing value from the array
+  var lowerIndex = 0;
   /*
   *  Fetches the bestMatch from dictionary or custom function
   *  based on the key passed
@@ -25,7 +26,7 @@ function Faker() {
       return customExtraction(key);
     }
     else {
-      return applicableDomain[getRandomArbitrary(applicableDomain.length - 1, 0)];
+      return applicableDomain[getRandomArbitrary((applicableDomain.length - 1), lowerIndex)];
     }
   };
 
@@ -44,8 +45,7 @@ function Faker() {
       case 'name.fullName':
         Object.keys($.fakifyDictionary.name).forEach(function (index) {
           var keyDomain = $.fakifyDictionary.name[index];
-          var seedIndex = getRandomArbitrary(keyDomain.length - 1, 0);
-          debugger;
+          var seedIndex = getRandomArbitrary((keyDomain.length - 1), lowerIndex);
           bestMatch.push(keyDomain[seedIndex]);
         });
         break;
@@ -64,8 +64,4 @@ function Faker() {
   var getRandomArbitrary =  function(max, min) {
     return Math.floor((Math.random() * max) + min);
   }
-
 }
-
-
-
