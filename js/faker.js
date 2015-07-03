@@ -1,5 +1,4 @@
-;
-(function ($, window, document, undefined) {
+;(function ($, window, document, undefined) {
     'use strict';
     $.fn.fakify = function (options) {
         var $this = this[0];
@@ -176,7 +175,7 @@ function Faker() {
 
     var getMeValueOf = function (index, customArray) {
         var domain = [];
-        if (customArray == undefined) {
+        if (customArray === undefined) {
             domain = eval($dictionaryRef + index);
         }
         else {

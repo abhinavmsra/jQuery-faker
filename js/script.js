@@ -1,8 +1,7 @@
 /**
  * Created by bipashant on 7/3/15.
  */
-;
-(function () {
+;(function () {
     $(document).ready(function () {
         $('#form1').fakify({
             '[customer][state]': 'name.fullName',
