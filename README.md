@@ -1,5 +1,7 @@
 # jQuery-Faker
 
+[![Code Climate](https://codeclimate.com/github/abhinavmsra/jQuery-faker/badges/gpa.svg)](https://codeclimate.com/github/abhinavmsra/jQuery-faker)
+
 A jquery plugin that generates the fake data for the developer to use during the development time. It actually generates the test data for the developer rather than having to type to regenerate the similar data to test the same business logic.
 
 Works with all major browsers.
@@ -39,6 +41,48 @@ _Thats the way the magic happens_
 $( "form" ).fakify();
 ```
 
-## Options
+## Advanced usage
+```javascript
+$('#form1').fakify({
+           "[applicant][name]": "fullname", // map name to the fullname in our database
+           "[customer][district]": ["Kathmandu", "Lalitpur", "Bhaktpur"], // add new datatype district to our database
+           "except": ["country", "address_2", "website"] //don't assign values to the given fields
+       });
+```
 
+## Example
 
+**simple usage**
+
+```html
+<form action="#" method="post" id="myform">
+  <input type="text" name="fname" id="fname">
+  <input type="text" name="mname" id="mname">
+  <input type="text" name="lname" id="lname">
+  <input type="text" name="address" id="address">
+  <input type="submit"
+</form>
+```
+
+```javascript
+$("#myform").fakify();
+```
+
+**advanced usage**
+```html
+<form action="#" method="post" id="myform">
+  <input type="text" name="fname" id="fname">
+  <input type="text" name="mname" id="mname">
+  <input type="text" name="lname" id="lname">
+  <input type="text" name="nick_name" id="nname">
+  <input type="submit"
+</form>
+```
+
+```javascript
+$("#myform").fakify({
+  "except": ["mname"],
+  "address": "street_address",
+  "nick_name": ["Chaure", "Dalley", "Daure", "Bhyagute", "Gole"]
+});
+```
