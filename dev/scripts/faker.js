@@ -51,8 +51,8 @@
                 }
             };
 
-            var excludeOption = new Array();
-            var specifiedOption = new Array();
+            var excludeOption = [];
+            var specifiedOption = [];
 
             if (options !== undefined) {
                 $.each(options, function (key, value) {
@@ -84,7 +84,7 @@
                 return name.split("][")[1].slice(0, -1);
             }
         });
-    }
+    };
 })(jQuery, window, document);
 
 
