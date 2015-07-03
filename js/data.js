@@ -20,7 +20,7 @@ $.fakeData = {
         fax_number: [ '444-555-555','333-555-5577'],
         building_number: [ '123',6789,'9870'],
         email: [ 'a@a.com','b@b.com'],
-        department: [ 'HR','Finance'],faker
+        department: [ 'HR','Finance']
         }
     company: {
        name: [ 'Global IME','Everest','INvestment'],
