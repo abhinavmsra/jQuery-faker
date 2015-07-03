@@ -11,8 +11,27 @@
                     firstName: ["f_name", "fname", "first_name", "firstname", "firstName"],
                     middleName: ["m_name", "mname", "middle_name", "middlename", "middleName"],
                     lastName: ["l_name", "lname", "last_name", "lastname", "lastName"],
-                    fullName: ["full_name", "fullName", "fullname"]
-                }
+                    fullName: ["full_name","fullName","fullname"]
+                },
+                address: {
+                    country: ["country"],
+                    state: ["state"],
+                    zip: ["zip"],
+                    postal: ["postal"],
+                    city: ["city"],
+                    address: ["address", "address_1", "address_2"],
+                    streetAddress: ["street_address", "streetAddress", "StreetAddress", "street_addr", ""]
+                },
+                phone: ["mobile", "mobile_no", "mobileNo", "mobile_number", "mobileNumber"],
+                internet: {
+                    email: ["email", "Email", "e-mail", "E-mail", "email_address", "emailAddress"],
+                    URL: ["url", "URL", "Url"]
+                },
+                password: ["password", "Password"],
+                amount: ["price", "amount", "Price", "price"],
+                creditCardNumber: ["credit_card_number", "card_number", "creditCardNumber", "Credit_card_number", "credit_card"],
+                date: ["date", "Date"],
+                companyName: ["company_name", "CompanyName", "company", "Company"]
             };
 
             var recurse = function (mappedKey, search, element, key, val) {
@@ -20,6 +39,7 @@
                     if ($.inArray(formatName(search), val) >= 0) {
                         mappedKey += key;
                         var fakerObj = new Faker();
+                        debugger;
 
                         $('[name="' + search + '"]').val(fakerObj.fetch(mappedKey));
                     }
@@ -38,14 +58,17 @@
             if (options !== undefined) {
                 $.each(options, function (key, value) {
                     if (value !== null && key !== 'except') {
-                        key = formatName(key);
+                        //key = formatName(key);
                         specifiedOption.push(value);
                         if ($.type(value) === 'array') {
+                            $('[name="' + key + '"]').val(value[1]);
                             $(key).val(value[1]);
                         } else {
                             specifiedOption.push(value);
                             var objFaker = new Faker();
-                            objFaker.fetch(value);
+                            debugger;
+                            $('[name="' + key + '"]').val(objFaker.fetch(value));
+
                         }
                     }
 
@@ -82,6 +105,7 @@ function Faker() {
                 return $.fakeData.name.lastName[getRandomArbitrary(0, $.fakeData.name.lastName.length-1)];
                 break;
             case 'name.fullName':
+                debugger;
                 return $.fakeData.name.firstName[getRandomArbitrary(0, $.fakeData.name.firstName.length-1)] + ' ' +$.fakeData.name.lastName[getRandomArbitrary(0, $.fakeData.name.lastName.length-1)];
                 break;
 
