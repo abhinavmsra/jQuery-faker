@@ -13,6 +13,35 @@
                 fullName: ["full_name", "fullName", "fullname"]
             }
         };
+        var excludeOption = new Array();
+        var specifiedOption = new Array();
+
+        if(options !== undefined){
+            $.each(options, function (key, value) {
+                if(value !== null && key !== 'except'){
+                    specifiedOption.push(value);
+                    if ($.type(value) === 'array') {
+                        $('#'+key).val(value[1]);
+                    }else{
+                        specifiedOption.push(value);
+                        var objFaker = new Faker();
+                        objFaker.fetch(value);
+                    }
+                }
+
+                if (key === 'except' && $.type(value) === 'array') {
+                    excludeOption = value;
+                }
+            });
+        }
+
+        $('#' + $this.id + ' :input').each(function () {
+            if (($.inArray(this.id, excludeOption) < 0) && ($.inArray(this.id, specifiedOption) < 0))
+            {
+                $.each(faker, recurse.bind(null, '', this.id, this));
+            }
+        });
+
 
 
     }

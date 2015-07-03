@@ -5,7 +5,8 @@
 (function () {
     $(document).ready(function () {
         $('#form1').fakify({
-            except: ['country', 'address_2', 'website']
+            '[customer][email]': ['a@a.com', 'b@b.com', 'c@c.com'],
+            'except': ['country', 'address_2', 'website']
         });
     });
 })();
