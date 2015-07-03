@@ -59,7 +59,7 @@
                 $.each(options, function (key, value) {
                     if (value !== null && key !== 'except') {
                         var element = $('[name="' + key + '"]')[0];
-                        if ($.type(value) === 'array') {
+                        if ($.type(value).constructor === Array) {
                             specifiedOption.push(key);
                             $(element).val(Faker.fetch(undefined, value));
                         } else {
@@ -74,14 +74,22 @@
                 });
             }
 
-            $('#' + $this.id + ' :input').each(function () {
+            $('#' + $this.id + ' input[type!=hidden]').each(function () {
                 if (($.inArray(this.name, excludeOption) < 0) && ($.inArray(this.name, specifiedOption) < 0)) {
                     $.each(faker, recurse.bind(null, '', this));
                 }
             });
 
+            //$('#' + $this.id + ' :input:checkbox').each(function () {
+            //    if ($.inArray(this.name, excludeOption) < 0) {
+            //        debugger;
+            //    }
+            //});
+
+
+
             function formatName(name) {
-                return name.split("][")[1].slice(0, -1);
+                return name.substring(name.lastIndexOf("[")+1, name.lastIndexOf("]"));
             }
         });
     }
@@ -133,17 +141,6 @@ function Faker() {
         return bestMatch.join(' ');
     };
 
-    /*
-     * Returns a random integer within a defined range
-     *
-     * @param max [Integer], upper-limit of the range
-     * @param min [Integer], lower-limit of the range
-     *
-     * @return [Integer], a pseudo-random integer within the desired range
-     * */
-    this.getRandomArbitrary = function (max, min) {
-        return Math.floor((Math.random() * max) + min);
-    };
 
     /*
      *  Returns the bestMatch for the key
@@ -160,7 +157,7 @@ function Faker() {
         else {
             domain = customArray;
         }
-        var seedIndex = that.getRandomArbitrary((domain.length - 1), that.lowerIndex);
+        var seedIndex = Faker.randInt((domain.length - 1), that.lowerIndex);
         return domain[seedIndex];
     };
 }
@@ -174,7 +171,8 @@ function Faker() {
  *
  *  @return [String], bestMatch to fill the form
  * */
-Faker.fetch = function (key, domain) {
+
+ Faker.fetch = function (key, domain) {
     var objFaker = new Faker();
     var penetrationDepth = objFaker.$dictionaryRef + key;
     var applicableDomain = eval(penetrationDepth);
@@ -184,6 +182,28 @@ Faker.fetch = function (key, domain) {
     else {
         return objFaker.getMeValueOf(key, domain);
     }
+};
+
+/*
+ * Returns a random integer within a defined range
+ *
+ * @param max [Integer], upper-limit of the range
+ * @param min [Integer], lower-limit of the range
+ *
+ * @return [Integer], a pseudo-random integer within the desired range
+ * */
+Faker.randInt = function (max, min) {
+    return Math.floor((Math.random() * max) + min);
+};
+
+
+/*
+ * Randomly returns a true or false value.
+ *
+ * @return [Boolean]
+ */
+Faker.randBool = function() {
+    return !this.randInt(0, 1);
 };
 
 $.fakifyDictionary = {

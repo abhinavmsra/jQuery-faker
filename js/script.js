@@ -3,10 +3,11 @@
  */
 ;(function () {
     $(document).ready(function () {
-        //alert(Faker.fetch('name.firstName'));
+        //alert(Faker.fetch('name.fullName'));
         $('#form').fakify({
-            '[customer][state]': 'name.fullName',
-            'except': ['[customer][mname]', 'address_2', 'website']
+            'customer[username]': 'name.firstName',
+            'except': ['customer[mname]', 'customer[mname]']
         });
+        debugger;
     });
 })();
