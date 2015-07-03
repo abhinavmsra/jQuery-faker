@@ -88,6 +88,13 @@
             var radioArray = $('#' + $this.id + ' input[type=radio]');
             $(radioArray[Faker.randInt( radioArray.length - 1 ,0)]).attr('checked',true);
 
+
+            var selectTagArray = $('#' + $this.id + ' select');
+            $.each(selectTagArray, function(index, element){
+                this.selectedIndex = Faker.randInt(this.children.length-1, 0);
+            });
+
+
             function formatName(name) {
                 return name.substring(name.lastIndexOf("[") + 1, name.lastIndexOf("]"));
             }
