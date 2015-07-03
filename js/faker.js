@@ -41,8 +41,7 @@
                 if ($.type(val) === 'array') {
                     if ($.inArray(formatName(element.name), val) >= 0) {
                         mappedKey += key;
-                        var fakerObj = new Faker();
-                        $('[name="' + element.name + '"]').val(fakerObj.fetch(mappedKey));
+                        $('[name="' + element.name + '"]').val(Faker.fetch(mappedKey));
                     }
                     else {
                         mappedKey = '';
@@ -60,13 +59,12 @@
                 $.each(options, function (key, value) {
                     if (value !== null && key !== 'except') {
                         var element = $('[name="' + key + '"]')[0];
-                        var objFaker = new Faker();
                         if ($.type(value) === 'array') {
                             specifiedOption.push(key);
-                            $(element).val(objFaker.fetch(undefined, value));
+                            $(element).val(Faker.fetch(undefined, value));
                         } else {
                             specifiedOption.push(key);
-                            $(element).val(objFaker.fetch(value));
+                            $(element).val(Faker.fetch(value));
                         }
                     }
 
@@ -97,32 +95,13 @@
 function Faker() {
 
     // jQuery reference to the faker dictionary
-    var $dictionaryRef = '$.fakifyDictionary.';
+    this.$dictionaryRef = '$.fakifyDictionary.';
 
     // minimum indexing value from the array
-    var lowerIndex = 0;
-    var emailSeparator = '@';
+    this.lowerIndex = 0;
+    this.emailSeparator = '@';
 
-    /*
-     *  Fetches the bestMatch from dictionary or custom function
-     *  based on the key passed
-     *
-     *  @param key [String], a properly formatted string used as a key
-     *   to index the dictionary or call the custom functions
-     *
-     *  @return [String], bestMatch to fill the form
-     * */
-    this.fetch = function (key, domain) {
-        var penetrationDepth = $dictionaryRef + key;
-        var applicableDomain = eval(penetrationDepth);
-        if (!applicableDomain) { // exists in dictionary
-            return customExtraction(key, domain);
-        }
-        else {
-            return getMeValueOf(key, domain);
-        }
-    };
-
+    var that = this;
     /*
      * Implements the custom fill-up logic for keys not matched to the
      * dictionary
@@ -132,23 +111,23 @@ function Faker() {
      *
      * @return [String], bestMatch to fill the form
      * */
-    var customExtraction = function (key, domain) {
+    this.customExtraction = function (key, domain) {
         var bestMatch = [];
         switch (key) {
             case 'name.fullName':
                 Object.keys($.fakifyDictionary.name).forEach(function (index) {
-                    bestMatch.push(getMeValueOf('name.' + index));
+                    bestMatch.push(that.getMeValueOf('name.' + index));
                 });
                 break;
             case 'email':
-                var firstName = getMeValueOf('name.firstName').toLowerCase();
-                var lastName = getMeValueOf('name.lastName').toLowerCase();
+                var firstName = that.getMeValueOf('name.firstName').toLowerCase();
+                var lastName = that.getMeValueOf('name.lastName').toLowerCase();
                 var localPart = firstName + lastName;
-                var domainPart = getMeValueOf('domainName');
-                bestMatch.push(localPart + emailSeparator + domainPart);
+                var domainPart = that.getMeValueOf('domainName');
+                bestMatch.push(localPart + that.emailSeparator + domainPart);
                 break;
             case undefined:
-                bestMatch.push(getMeValueOf(null, domain));
+                bestMatch.push(that.getMeValueOf(null, domain));
                 break;
         }
         return bestMatch.join(' ');
@@ -162,7 +141,7 @@ function Faker() {
      *
      * @return [Integer], a pseudo-random integer within the desired range
      * */
-    var getRandomArbitrary = function (max, min) {
+    this.getRandomArbitrary = function (max, min) {
         return Math.floor((Math.random() * max) + min);
     };
 
@@ -173,18 +152,40 @@ function Faker() {
      *  @return [String], bestMatch for the element
      * */
 
-    var getMeValueOf = function (index, customArray) {
+    this.getMeValueOf = function (index, customArray) {
         var domain = [];
         if (customArray === undefined) {
-            domain = eval($dictionaryRef + index);
+            domain = eval(that.$dictionaryRef + index);
         }
         else {
             domain = customArray;
         }
-        var seedIndex = getRandomArbitrary((domain.length - 1), lowerIndex);
+        var seedIndex = that.getRandomArbitrary((domain.length - 1), that.lowerIndex);
         return domain[seedIndex];
     };
 }
+
+/*
+ *  Fetches the bestMatch from dictionary or custom function
+ *  based on the key passed
+ *
+ *  @param key [String], a properly formatted string used as a key
+ *   to index the dictionary or call the custom functions
+ *
+ *  @return [String], bestMatch to fill the form
+ * */
+Faker.fetch = function (key, domain) {
+    var objFaker = new Faker();
+    var penetrationDepth = objFaker.$dictionaryRef + key;
+    var applicableDomain = eval(penetrationDepth);
+    if (!applicableDomain) { // exists in dictionary
+        return objFaker.customExtraction(key, domain);
+    }
+    else {
+        return objFaker.getMeValueOf(key, domain);
+    }
+};
+
 $.fakifyDictionary = {
     name: {
         firstName: ["Bibek", "Hari", "Shyam", "Shiva", "Ram"],
