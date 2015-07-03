@@ -20,7 +20,16 @@ _add a demo site either fiddle or our github site_
 
 ## Future Enhancements
 
-* _lots of things_
+* Restrict data of the existent datatype to user defined values
+* Include support for all types of inputs `eg: select, radio, checkbox`
+* Add regular expression match for more magic
+* Make even better internal knowledgebase for even more magic
+* Allow custom field to be created based on datatype only, no need to define the data itself
+* Allow users to switch to bug mode where incorrect data is fed to the fields to check the vulnerabilities
+* Automatic disable in production environment
+* Auto detect confirmation fields
+* Support minimum and maximum values for numerical/date datatypes
+* Match with multiple input attributes
 
 ## Why do I need this?
 
@@ -52,7 +61,7 @@ $('#form1').fakify({
 
 ## Example
 
-**simple usage**
+**Simple usage**
 
 ```html
 <form action="#" method="post" id="myform">
@@ -68,7 +77,7 @@ $('#form1').fakify({
 $("#myform").fakify();
 ```
 
-**advanced usage**
+**Advanced usage**
 ```html
 <form action="#" method="post" id="myform">
   <input type="text" name="fname" id="fname">
@@ -81,8 +90,8 @@ $("#myform").fakify();
 
 ```javascript
 $("#myform").fakify({
-  "except": ["mname"],
-  "address": "street_address",
-  "nick_name": ["Chaure", "Dalley", "Daure", "Bhyagute", "Gole"]
+  "except": ["mname"], // Keep mname from autogenerating
+  "address": "street_address", // Map address field to street_address
+  "nick_name": ["Chaure", "Dalley", "Daure", "Bhyagute", "Gole"] //add custom datatype along with the data
 });
 ```
