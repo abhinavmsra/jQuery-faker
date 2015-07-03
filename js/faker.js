@@ -13,6 +13,23 @@
                 fullName: ["full_name", "fullName", "fullname"]
             }
         };
+
+        var recurse = function(mappedKey, search, element, key, val) {
+            if ($.type(val) === 'array') {
+                if ($.inArray(search, val) >= 0) {
+                    mappedKey += key;
+                    var fakerObj = new Faker();
+                    $('#'+search).val(fakerObj.fetch(mappedKey));
+                }
+                else {
+                    mappedKey = '';
+                }
+            } else {
+                mappedKey += key + '.';
+                $.each(val, recurse.bind(null, mappedKey, search, element));
+            }
+        };
+
         var excludeOption = new Array();
         var specifiedOption = new Array();
 
