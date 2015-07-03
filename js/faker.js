@@ -1,4 +1,3 @@
-
 ;
 (function ($, window, document, undefined) {
     'use strict';
@@ -7,37 +6,37 @@
         return this.each(function () {
             var faker = {
                 name: {
-                    firstName: [ 'f_name', 'fname','first_name','firstname','fstname'],
-                    middleName: [ 'm_name', 'mname','middle_name','middlename'],
-                    lastName: [ 'l_name', 'lname','last_name','lastname','lstname'],
-                    title: [ 'title'],
-                    fullName:[ 'fullName']
+                    firstName: ['f_name', 'fname', 'first_name', 'firstname', 'fstname'],
+                    middleName: ['m_name', 'mname', 'middle_name', 'middlename'],
+                    lastName: ['l_name', 'lname', 'last_name', 'lastname', 'lstname'],
+                    title: ['title'],
+                    fullName: ['fullName']
                 },
                 address: {
-                    country: [ 'country'],
-                    state: [ 'state'],
-                    zip: [ 'zipcode','zip'],
-                    postcode: [ 'postcode','postcode_by_state'],
-                    address: [ 'address','secondary_address','primary_address'],
-                    street_address: [ 'street_address','street','street_name'],
-                    state_abbr: [ 'state_abbr'],
-                    city: [ 'city'],
-                    phone: [ 'cell_phone','phone','phone_number'],
-                    extension: [ 'extension','ext'],
-                    fax_number: [ 'fax_number','fax'],
-                    building_number: [ 'building_number'],
-                    department: [ 'department']
+                    country: ['country'],
+                    state: ['state'],
+                    zip: ['zipcode', 'zip'],
+                    postcode: ['postcode', 'postcode_by_state'],
+                    address: ['address', 'secondary_address', 'primary_address'],
+                    street_address: ['street_address', 'street', 'street_name'],
+                    state_abbr: ['state_abbr'],
+                    city: ['city'],
+                    phone: ['cell_phone', 'phone', 'phone_number'],
+                    extension: ['extension', 'ext'],
+                    fax_number: ['fax_number', 'fax'],
+                    building_number: ['building_number'],
+                    department: ['department']
                 },
                 company: {
-                    name: [ 'company_name','c_name', 'organization_name', 'name'],
-                    website: [ 'url','website','web_address','web-address'],
-                    title: [ 'title'],
-                    description: [ 'description','desc']
+                    name: ['company_name', 'c_name', 'organization_name', 'name'],
+                    website: ['url', 'website', 'web_address', 'web-address'],
+                    title: ['title'],
+                    description: ['description', 'desc']
                 },
                 personal: {
-                    academic: [ 'academic','education','qualification']
+                    academic: ['academic', 'education', 'qualification']
                 },
-                email: [ 'email','mailto','free_email','internet_email']
+                email: ['email', 'mailto', 'free_email', 'internet_email']
             };
             var recurse = function (mappedKey, search, element, key, val) {
                 if ($.type(val) === 'array') {
@@ -66,10 +65,8 @@
                         if ($.type(value) === 'array') {
                             specifiedOption.push(key);
                             $(element).val(objFaker.fetch(undefined, value));
-
                         } else {
                             specifiedOption.push(key);
-                            debugger;
                             $(element).val(objFaker.fetch(value));
                         }
                     }
@@ -86,8 +83,8 @@
                 }
             });
 
-            function formatName ( name ){
-                return name.split("][")[1].slice(0,-1);
+            function formatName(name) {
+                return name.split("][")[1].slice(0, -1);
             }
         });
     }
@@ -190,34 +187,34 @@ function Faker() {
     };
 }
 $.fakifyDictionary = {
-  name: {
-    firstName: ["Bibek", "Hari", "Shyam", "Shiva", "Ram"],
-    middleName: ["Sharma", "Lal", "Raj", "Prasad", "Dip"],
-    lastName: ['Lamichhane', 'Aryal', 'Basnet', 'Adhikari', 'Poudyal']
-  },
-  address: {
-    country: ["Nepal", "India", "Bhutan"],
-    state: ["Kathmandu", "Delhi", "Chennai"],
-    zip: ["009977", "12312", "43211"],
-    postcode: ["123"],
-    address: ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia'],
-    streetAddress: ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia'],
-    state_abbr: ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT'],
-    city: ['Ktm', 'Pokhara', 'Butwal'],
-    phone: ['123-456-789', '546-666-888', '544-666-998'],
-    extension: ['3456', '1234', '7890'],
-    fax_number: ['444-555-555', '333-555-5577'],
-    building_number: ['123', '6789', '9870'],
-    department: ['HR', 'Finance']
-  },
-  company: {
-    name: ['Global IME', 'Everest', 'Investment'],
-    website: ['a.com', 'b.gov', 'c.net'],
-    title: ['Lorem ipsum'],
-    description: ['Lorem description']
-  },
-  personal: {
-    academic: ['MBA', 'BBA', 'SLC']
-  },
-  domainName: ['gmail.con', 'yahoo.com', 'hotmail.com']
+    name: {
+        firstName: ["Bibek", "Hari", "Shyam", "Shiva", "Ram"],
+        middleName: ["Sharma", "Lal", "Raj", "Prasad", "Dip"],
+        lastName: ['Lamichhane', 'Aryal', 'Basnet', 'Adhikari', 'Poudyal']
+    },
+    address: {
+        country: ["Nepal", "India", "Bhutan"],
+        state: ["Kathmandu", "Delhi", "Chennai"],
+        zip: ["009977", "12312", "43211"],
+        postcode: ["123"],
+        address: ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia'],
+        streetAddress: ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia'],
+        state_abbr: ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT'],
+        city: ['Ktm', 'Pokhara', 'Butwal'],
+        phone: ['123-456-789', '546-666-888', '544-666-998'],
+        extension: ['3456', '1234', '7890'],
+        fax_number: ['444-555-555', '333-555-5577'],
+        building_number: ['123', '6789', '9870'],
+        department: ['HR', 'Finance']
+    },
+    company: {
+        name: ['Global IME', 'Everest', 'Investment'],
+        website: ['a.com', 'b.gov', 'c.net'],
+        title: ['Lorem ipsum'],
+        description: ['Lorem description']
+    },
+    personal: {
+        academic: ['MBA', 'BBA', 'SLC']
+    },
+    domainName: ['gmail.con', 'yahoo.com', 'hotmail.com']
 };
