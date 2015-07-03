@@ -4,6 +4,7 @@
 (function ($, window, document, undefined) {
     'use strict';
     $.fn.fakify = function (options) {
+        var $this = this[0];
 
     }
 })(jQuery, window, document);
