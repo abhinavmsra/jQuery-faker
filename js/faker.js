@@ -5,6 +5,13 @@
     'use strict';
     $.fn.fakify = function (options) {
         var $this = this[0];
-
+        var faker = {
+            name: {
+                firstName: ["f_name", "fname", "first_name", "firstname", "firstName"],
+                middleName: ["m_name", "mname", "middle_name", "middlename", "middleName"],
+                lastName: ["l_name", "lname", "last_name", "lastname", "lastName"],
+                fullName: ["full_name", "fullName", "fullname"]
+            }
+        };
     }
 })(jQuery, window, document);
