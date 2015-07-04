@@ -8,7 +8,7 @@ Works with all major browsers.
 
 ## Demo
 
-_add a demo site either fiddle or our github site_
+http://abhinavmsra.github.io/jQuery-faker
 
 ## Features
 
