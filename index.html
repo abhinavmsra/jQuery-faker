@@ -24,22 +24,22 @@
 
 <p><a href="https://codeclimate.com/github/abhinavmsra/jQuery-faker"><img src="https://codeclimate.com/github/abhinavmsra/jQuery-faker/badges/gpa.svg" alt="Code Climate"></a></p>
 
-<p>A jquery plugin that generates the fake data for the developer to use during the development time. It actually generates the test data for the developer rather than having to type to regenerate the similar data to test the same business logic.</p>
+<p>A jQuery plugin that generates the fake data for the developer to use during the development time. It actually generates the test data for the developer rather than having to type to regenerate the similar data to test same business logic.</p>
 
 <p>Works with all major browsers.</p>
 
 <h2>
 <a id="demo" class="anchor" href="#demo" aria-hidden="true"><span class="octicon octicon-link"></span></a>Demo</h2>
 
-<p><em>add a demo site either fiddle or our github site</em></p>
+<p><a href="http://abhinavmsra.github.io/jQuery-faker">http://abhinavmsra.github.io/jQuery-faker</a></p>
 
 <h2>
 <a id="features" class="anchor" href="#features" aria-hidden="true"><span class="octicon octicon-link"></span></a>Features</h2>
 
 <ul>
-<li><strong>Automatic data generation for the forms</strong></li>
-<li>Detects the input type and adds random relevant values.</li>
-<li>Supports randomization of radio button, check box, select box</li>
+<li>Automatic data generation for the forms</li>
+<li>Detects the input type and adds random relevant values</li>
+<li>Supports randomization of radio button, check box and select box</li>
 <li>Customized data type for user convenience</li>
 <li>Add new data and data types</li>
 <li>Restrict data to user defined values for each data types</li>
@@ -53,25 +53,25 @@
 
 <ul>
 <li>Add regular expression match for more magic</li>
-<li>Make even better internal knowledgebase for even more magic</li>
-<li>Allow custom field to be created based on datatype only, no need to define the data itself</li>
+<li>Make even better internal knowledge base for even more magic</li>
+<li>Allow custom field to be created based on data type only, no need to define the data itself</li>
 <li>Allow users to switch to bug mode where incorrect data is fed to the fields to check the vulnerabilities</li>
 <li>Automatic disable in production environment</li>
 <li>Auto detect confirmation fields</li>
-<li>Support minimum and maximum values for numerical/date datatypes</li>
+<li>Support minimum and maximum values for numerical/date data types</li>
 <li>Match with multiple input attributes</li>
 </ul>
 
 <h2>
 <a id="why-do-i-need-this" class="anchor" href="#why-do-i-need-this" aria-hidden="true"><span class="octicon octicon-link"></span></a>Why do I need this?</h2>
 
-<p><strong>Because all the other faker plugins are just fakes.</strong> Not all plugins gave the automation we seeked, we had to map each of our input fields to the data, and some even didnt gave random data. We found some browser plugins but we needed to setup different browser extensions which is much tedious.</p>
+<p><strong>Because all the other faker plugins are just fake.</strong> Not all plugins gave the automation we seek, we had to map each of our input fields to the data, and some even didn't gave random data. We found some browser plugins but we needed to setup different browser extensions which is much tedious.</p>
 
-<p><strong>Adding it wont hurt you.</strong> You won't need any significant change. It'll just give life to those blank input fields, selects, radio buttons, check boxes,  so you dont have to type again and again each time you refresh the browser.</p>
+<p><strong>Adding it won't hurt you.</strong> You won't need any significant change. It'll just give life to those blank input fields, selects, radio buttons and checkboxes. So, you don't have to type again and again each time you refresh the browser.</p>
 
 <div class="highlight highlight-javascript"><pre>$( <span class="pl-s"><span class="pl-pds">"</span>#myform<span class="pl-pds">"</span></span> ).fakify();</pre></div>
 
-<p><em>Thats the way the magic happens</em></p>
+<p><em>That's the way the magic happens</em></p>
 
 <h2>
 <a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
@@ -82,9 +82,9 @@
 <a id="advanced-usage" class="anchor" href="#advanced-usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Advanced usage</h2>
 
 <div class="highlight highlight-javascript"><pre>$(<span class="pl-s"><span class="pl-pds">'</span>#myform<span class="pl-pds">'</span></span>).fakify({
-           <span class="pl-s"><span class="pl-pds">"</span>[applicant][name]<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>name.fullname<span class="pl-pds">"</span></span>, <span class="pl-c">// map name to the fullname in our database</span>
-           <span class="pl-s"><span class="pl-pds">"</span>[customer][district]<span class="pl-pds">"</span></span><span class="pl-k">:</span> [<span class="pl-s"><span class="pl-pds">"</span>Kathmandu<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>Lalitpur<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>Bhaktpur<span class="pl-pds">"</span></span>], <span class="pl-c">// add new datatype district to our database</span>
-           <span class="pl-s"><span class="pl-pds">"</span>except<span class="pl-pds">"</span></span><span class="pl-k">:</span> [<span class="pl-s"><span class="pl-pds">"</span>country<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>address_2<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>website<span class="pl-pds">"</span></span>] <span class="pl-c">//don't assign values to the given fields</span>
+           <span class="pl-s"><span class="pl-pds">"</span>applicant[name]<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>name.fullName<span class="pl-pds">"</span></span>, <span class="pl-c">// maps name to the fullName in our database</span>
+           <span class="pl-s"><span class="pl-pds">"</span>customer[district]<span class="pl-pds">"</span></span><span class="pl-k">:</span> [<span class="pl-s"><span class="pl-pds">"</span>Kathmandu<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>Lalitpur<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>Bhaktapur<span class="pl-pds">"</span></span>], <span class="pl-c">// adds a new datatype district to our database</span>
+           <span class="pl-s"><span class="pl-pds">"</span>except<span class="pl-pds">"</span></span><span class="pl-k">:</span> [<span class="pl-s"><span class="pl-pds">"</span>country<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>address_2<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>website<span class="pl-pds">"</span></span>] <span class="pl-c">// doesn't assign values to the given fields</span>
        });</pre></div>
 
 <h2>
@@ -132,17 +132,10 @@
 &lt;/<span class="pl-ent">form</span>&gt;</pre></div>
 
 <div class="highlight highlight-javascript"><pre>$(<span class="pl-s"><span class="pl-pds">"</span>#myform<span class="pl-pds">"</span></span>).fakify({
-  <span class="pl-s"><span class="pl-pds">"</span>except<span class="pl-pds">"</span></span><span class="pl-k">:</span> [<span class="pl-s"><span class="pl-pds">"</span>customer[mname]<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span>city<span class="pl-pds">"</span></span>], <span class="pl-c">// Keep mname and city from autogenerating</span>
-  <span class="pl-s"><span class="pl-pds">"</span>customer[address_1]<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>address.streetAddress<span class="pl-pds">"</span></span>, <span class="pl-c">// Map address_1 field to street_address</span>
-  <span class="pl-s"><span class="pl-pds">"</span>customer[nick_name]<span class="pl-pds">"</span></span><span class="pl-k">:</span> [<span class="pl-s"><span class="pl-pds">"</span>Chaure<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>Dalley<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>Daure<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>Bhyagute<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>Gole<span class="pl-pds">"</span></span>] <span class="pl-c">// add custom datatype along with the data</span>
-  <span class="pl-s"><span class="pl-pds">"</span>customer[country]<span class="pl-pds">"</span></span><span class="pl-k">:</span> [<span class="pl-s"><span class="pl-pds">"</span>Nepal<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>China<span class="pl-pds">"</span></span>] <span class="pl-c">// restrict country data type to "Nepal" and "china" only</span>
-});</pre></div>
-
-<div class="highlight highlight-javascript"><pre>$(<span class="pl-s"><span class="pl-pds">"</span>#myform<span class="pl-pds">"</span></span>).fakify({
-  <span class="pl-s"><span class="pl-pds">"</span>except<span class="pl-pds">"</span></span><span class="pl-k">:</span> [<span class="pl-s"><span class="pl-pds">"</span>customer[mname]<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span>city<span class="pl-pds">"</span></span>], <span class="pl-c">// Keep mname and city from autogenerating</span>
-  <span class="pl-s"><span class="pl-pds">"</span>customer[address_1]<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>address.streetAddress<span class="pl-pds">"</span></span>, <span class="pl-c">// Map address_1 field to street_address</span>
-  <span class="pl-s"><span class="pl-pds">"</span>customer[nick_name]<span class="pl-pds">"</span></span><span class="pl-k">:</span> [<span class="pl-s"><span class="pl-pds">"</span>Chaure<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>Dalley<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>Daure<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>Bhyagute<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>Gole<span class="pl-pds">"</span></span>] <span class="pl-c">// add custom datatype along with the data</span>
-  <span class="pl-s"><span class="pl-pds">"</span>customer[country]<span class="pl-pds">"</span></span><span class="pl-k">:</span> [<span class="pl-s"><span class="pl-pds">"</span>Nepal<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>China<span class="pl-pds">"</span></span>] <span class="pl-c">// restrict country data type to "Nepal" and "china" only</span>
+  <span class="pl-s"><span class="pl-pds">"</span>except<span class="pl-pds">"</span></span><span class="pl-k">:</span> [<span class="pl-s"><span class="pl-pds">"</span>customer[mname]<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span>city<span class="pl-pds">"</span></span>], <span class="pl-c">// keeps mname and city from auto generating</span>
+  <span class="pl-s"><span class="pl-pds">"</span>customer[address_1]<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>address.streetAddress<span class="pl-pds">"</span></span>, <span class="pl-c">// maps address_1 field to street_address</span>
+  <span class="pl-s"><span class="pl-pds">"</span>customer[nick_name]<span class="pl-pds">"</span></span><span class="pl-k">:</span> [<span class="pl-s"><span class="pl-pds">"</span>Chaure<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>Dalley<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>Daure<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>Bhyagute<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>Gole<span class="pl-pds">"</span></span>] <span class="pl-c">// adds custom datatype along with the data</span>
+  <span class="pl-s"><span class="pl-pds">"</span>customer[country]<span class="pl-pds">"</span></span><span class="pl-k">:</span> [<span class="pl-s"><span class="pl-pds">"</span>Nepal<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>China<span class="pl-pds">"</span></span>] <span class="pl-c">// restricts country data type to "Nepal" and "China" only</span>
 });</pre></div>
 
 <h2>
@@ -159,22 +152,19 @@ Faker.fetch(<span class="pl-s"><span class="pl-pds">'</span>name.fullName<span c
 
 <div class="highlight highlight-javascript"><pre>Faker.fetch(<span class="pl-s"><span class="pl-pds">'</span>address.country<span class="pl-pds">'</span></span>); <span class="pl-c">// =&gt; 'Nepal'</span>
 Faker.fetch(<span class="pl-s"><span class="pl-pds">'</span>address.state<span class="pl-pds">'</span></span>); <span class="pl-c">// =&gt; 'Baglung'</span>
-Faker.fetch(<span class="pl-s"><span class="pl-pds">'</span>address.zip<span class="pl-pds">'</span></span>); <span class="pl-c">// =&gt; '12312'</span>
+Faker.fetch(<span class="pl-s"><span class="pl-pds">'</span>address.zip<span class="pl-pds">'</span></span>); <span class="pl-c">// =&gt; '46045'</span>
 Faker.fetch(<span class="pl-s"><span class="pl-pds">'</span>address.postCode<span class="pl-pds">'</span></span>); <span class="pl-c">// =&gt; '123'</span>
 Faker.fetch(<span class="pl-s"><span class="pl-pds">'</span>address.streetAddress<span class="pl-pds">'</span></span>); <span class="pl-c">// =&gt; 'JANE ROE 200 E MAIN ST PHOENIX AZ 85123 USA'</span>
 Faker.fetch(<span class="pl-s"><span class="pl-pds">'</span>address.stateAbbr<span class="pl-pds">'</span></span>); <span class="pl-c">// =&gt; 'AL'</span>
 Faker.fetch(<span class="pl-s"><span class="pl-pds">'</span>address.city<span class="pl-pds">'</span></span>); <span class="pl-c">// =&gt; 'Pokhara'</span>
-Faker.fetch(<span class="pl-s"><span class="pl-pds">'</span>address.phone<span class="pl-pds">'</span></span>); <span class="pl-c">// =&gt; '111-222-3333'</span>
-Faker.fetch(<span class="pl-s"><span class="pl-pds">'</span>address.extension<span class="pl-pds">'</span></span>); <span class="pl-c">// =&gt; '3456'</span>
-Faker.fetch(<span class="pl-s"><span class="pl-pds">'</span>address.faxNumber<span class="pl-pds">'</span></span>); <span class="pl-c">// =&gt; '444-555-5555'</span>
-Faker.fetch(<span class="pl-s"><span class="pl-pds">'</span>address.buildingNumber<span class="pl-pds">'</span></span>); <span class="pl-c">// =&gt; '123'</span></pre></div>
+Faker.fetch(<span class="pl-s"><span class="pl-pds">'</span>address.buildingNumber<span class="pl-pds">'</span></span>); <span class="pl-c">// =&gt; '4297'</span></pre></div>
 
 <p><strong>Company</strong></p>
 
 <div class="highlight highlight-javascript"><pre>Faker.fetch(<span class="pl-s"><span class="pl-pds">'</span>company.name<span class="pl-pds">'</span></span>); <span class="pl-c">// =&gt; 'Can Do Coffee Distributors'</span>
 Faker.fetch(<span class="pl-s"><span class="pl-pds">'</span>company.website<span class="pl-pds">'</span></span>); <span class="pl-c">// =&gt; 'aliexpress.com'</span>
 Faker.fetch(<span class="pl-s"><span class="pl-pds">'</span>company.title<span class="pl-pds">'</span></span>); <span class="pl-c">// =&gt; 'A Separate Peace'</span>
-Faker.fetch(<span class="pl-s"><span class="pl-pds">'</span>company.description<span class="pl-pds">'</span></span>); <span class="pl-c">// =&gt; 'Artificial intelligence is no match for natural stupidity.'</span></pre></div>
+Faker.fetch(<span class="pl-s"><span class="pl-pds">'</span>company.department<span class="pl-pds">'</span></span>); <span class="pl-c">// =&gt; 'RoR'</span></pre></div>
 
 <p><strong>Personal</strong></p>
 
@@ -187,6 +177,14 @@ Faker.fetch(<span class="pl-s"><span class="pl-pds">'</span>company.description<
 <p><strong>Business</strong></p>
 
 <div class="highlight highlight-javascript"><pre>Faker.fetch(<span class="pl-s"><span class="pl-pds">'</span>business.creditCardNumbers<span class="pl-pds">'</span></span>); <span class="pl-c">// =&gt; '4111111111111111'</span></pre></div>
+
+<p><strong>Miscellaneous</strong></p>
+
+<div class="highlight highlight-javascript"><pre>Faker.fetch(<span class="pl-s"><span class="pl-pds">'</span>phone<span class="pl-pds">'</span></span>); <span class="pl-c">// =&gt; '9842529593'</span>
+Faker.fetch(<span class="pl-s"><span class="pl-pds">'</span>extension<span class="pl-pds">'</span></span>); <span class="pl-c">// =&gt; '0710'</span>
+Faker.fetch(<span class="pl-s"><span class="pl-pds">'</span>faxNumber<span class="pl-pds">'</span></span>); <span class="pl-c">// =&gt; '021-837-0251'</span>
+Faker.fetch(<span class="pl-s"><span class="pl-pds">'</span><span class="pl-pds">'</span></span>); <span class="pl-c">// =&gt; 'The last thing I want to do is insult you. But it IS on the list.'</span>
+Faker.fetch(); <span class="pl-c">// =&gt; 'Letting the cat out of the bag is a whole lot easier than putting it back in.'</span></pre></div>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/abhinavmsra/jQuery-faker">Jquery-faker</a> is maintained by <a href="https://github.com/abhinavmsra">abhinavmsra</a>.</span>
