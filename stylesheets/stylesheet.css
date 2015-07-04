@@ -243,6 +243,3 @@ a {
 @media screen and (max-width: 42em) {
   .site-footer {
     font-size: 0.9rem; } }
-input[type=checkbox],input[type=radio]  {
-  margin-left: 5px;
-}

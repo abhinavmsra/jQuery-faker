@@ -31,29 +31,7 @@
 <h2>
 <a id="demo" class="anchor" href="#demo" aria-hidden="true"><span class="octicon octicon-link"></span></a>Demo</h2>
 
-<form id="form" name="form">
-  <table>
-  <tr><td><label>First Name</label></td><td><input id="customer_fname" name="customer[fname]" type="text"></td></tr>
-  <tr><td><label>Last Name</label></td><td><input id="customer_lname" name="customer[lname]" type="text"></td></tr>
-  <tr><td><label>Email</label></td><td><input id="customer_email" name="customer[email]" type="text"></td></tr>
-  <tr><td><label>City</label></td><td><input id="customer_city" name="customer[city]" type="text"></td></tr>
-  <tr><td><label>Country</label></td><td><input id="customer_country" name="customer[country]" type="text"></td></tr>
-  <tr><td colspan="2"><input type="checkbox" name="vehicle" value="Bike">&nbsp; Bike
-  <input type="checkbox" name="vehicle" value="Car">&nbsp; Car
-  <input type="checkbox" name="vehicle" value="Bike">&nbsp; Bus</td></tr>
-  <tr><td colspan="2"><input type="radio" name="radioGroup" value="1"> One</input>
-  <input type="radio" name="radioGroup" value="2"> Two</input>
-  <input type="radio" name="radioGroup" value="3"> Three</input></td></tr>
-  <tr><td colspan="2"><select>
-    <option value="default" disabled="disabled">Select one--</option>
-    <option value="volvo">Volvo</option>
-    <option value="saab">Saab</option>
-    <option value="mercedes">Mercedes</option>
-    <option value="audi">Audi</option>
-  </select></td></tr>
-  <tr><td colspan="2"><input type="submit" value="Submit"></td></tr>
-  </table>
-</form>
+<p><em>add a demo site either fiddle or our github site</em></p>
 
 <h2>
 <a id="features" class="anchor" href="#features" aria-hidden="true"><span class="octicon octicon-link"></span></a>Features</h2>
@@ -91,19 +69,19 @@
 
 <p><strong>Adding it wont hurt you.</strong> You won't need any significant change. It'll just give life to those blank input fields, selects, radio buttons, check boxes,  so you dont have to type again and again each time you refresh the browser.</p>
 
-<div class="highlight highlight-javascript"><pre>$( <span class="pl-s"><span class="pl-pds">"</span>form<span class="pl-pds">"</span></span> ).fakify();</pre></div>
+<div class="highlight highlight-javascript"><pre>$( <span class="pl-s"><span class="pl-pds">"</span>#myform<span class="pl-pds">"</span></span> ).fakify();</pre></div>
 
 <p><em>Thats the way the magic happens</em></p>
 
 <h2>
 <a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
 
-<div class="highlight highlight-javascript"><pre>$( <span class="pl-s"><span class="pl-pds">"</span>form<span class="pl-pds">"</span></span> ).fakify();</pre></div>
+<div class="highlight highlight-javascript"><pre>$( <span class="pl-s"><span class="pl-pds">"</span>#myform<span class="pl-pds">"</span></span> ).fakify();</pre></div>
 
 <h2>
 <a id="advanced-usage" class="anchor" href="#advanced-usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Advanced usage</h2>
 
-<div class="highlight highlight-javascript"><pre>$(<span class="pl-s"><span class="pl-pds">'</span>#form1<span class="pl-pds">'</span></span>).fakify({
+<div class="highlight highlight-javascript"><pre>$(<span class="pl-s"><span class="pl-pds">'</span>#myform<span class="pl-pds">'</span></span>).fakify({
            <span class="pl-s"><span class="pl-pds">"</span>[applicant][name]<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>name.fullname<span class="pl-pds">"</span></span>, <span class="pl-c">// map name to the fullname in our database</span>
            <span class="pl-s"><span class="pl-pds">"</span>[customer][district]<span class="pl-pds">"</span></span><span class="pl-k">:</span> [<span class="pl-s"><span class="pl-pds">"</span>Kathmandu<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>Lalitpur<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>Bhaktpur<span class="pl-pds">"</span></span>], <span class="pl-c">// add new datatype district to our database</span>
            <span class="pl-s"><span class="pl-pds">"</span>except<span class="pl-pds">"</span></span><span class="pl-k">:</span> [<span class="pl-s"><span class="pl-pds">"</span>country<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>address_2<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>website<span class="pl-pds">"</span></span>] <span class="pl-c">//don't assign values to the given fields</span>
@@ -126,7 +104,7 @@
 
 <p><strong>Advanced usage</strong></p>
 
-<div class="highlight highlight-html"><pre>&lt;<span class="pl-ent">form</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>my_form<span class="pl-pds">"</span></span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>my_form<span class="pl-pds">"</span></span> <span class="pl-e">method</span>=<span class="pl-s"><span class="pl-pds">"</span>post<span class="pl-pds">"</span></span>&gt;
+<div class="highlight highlight-html"><pre>&lt;<span class="pl-ent">form</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>myform<span class="pl-pds">"</span></span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>my_form<span class="pl-pds">"</span></span> <span class="pl-e">method</span>=<span class="pl-s"><span class="pl-pds">"</span>post<span class="pl-pds">"</span></span>&gt;
   &lt;<span class="pl-ent">input</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>customer_fname<span class="pl-pds">"</span></span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>customer[username]<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>text<span class="pl-pds">"</span></span>&gt;
   &lt;<span class="pl-ent">input</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>customer_mname<span class="pl-pds">"</span></span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>customer[mname]<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>text<span class="pl-pds">"</span></span>&gt;
   &lt;<span class="pl-ent">input</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>customer_lname<span class="pl-pds">"</span></span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>customer[lname]<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>text<span class="pl-pds">"</span></span>&gt;
@@ -160,6 +138,13 @@
   <span class="pl-s"><span class="pl-pds">"</span>customer[country]<span class="pl-pds">"</span></span><span class="pl-k">:</span> [<span class="pl-s"><span class="pl-pds">"</span>Nepal<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>China<span class="pl-pds">"</span></span>] <span class="pl-c">// restrict country data type to "Nepal" and "china" only</span>
 });</pre></div>
 
+<div class="highlight highlight-javascript"><pre>$(<span class="pl-s"><span class="pl-pds">"</span>#myform<span class="pl-pds">"</span></span>).fakify({
+  <span class="pl-s"><span class="pl-pds">"</span>except<span class="pl-pds">"</span></span><span class="pl-k">:</span> [<span class="pl-s"><span class="pl-pds">"</span>customer[mname]<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span>city<span class="pl-pds">"</span></span>], <span class="pl-c">// Keep mname and city from autogenerating</span>
+  <span class="pl-s"><span class="pl-pds">"</span>customer[address_1]<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>address.streetAddress<span class="pl-pds">"</span></span>, <span class="pl-c">// Map address_1 field to street_address</span>
+  <span class="pl-s"><span class="pl-pds">"</span>customer[nick_name]<span class="pl-pds">"</span></span><span class="pl-k">:</span> [<span class="pl-s"><span class="pl-pds">"</span>Chaure<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>Dalley<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>Daure<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>Bhyagute<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>Gole<span class="pl-pds">"</span></span>] <span class="pl-c">// add custom datatype along with the data</span>
+  <span class="pl-s"><span class="pl-pds">"</span>customer[country]<span class="pl-pds">"</span></span><span class="pl-k">:</span> [<span class="pl-s"><span class="pl-pds">"</span>Nepal<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>China<span class="pl-pds">"</span></span>] <span class="pl-c">// restrict country data type to "Nepal" and "china" only</span>
+});</pre></div>
+
 <h2>
 <a id="generators" class="anchor" href="#generators" aria-hidden="true"><span class="octicon octicon-link"></span></a>Generators</h2>
 
@@ -173,10 +158,10 @@ Faker.fetch(<span class="pl-s"><span class="pl-pds">'</span>name.fullName<span c
 <p><strong>Address</strong></p>
 
 <div class="highlight highlight-javascript"><pre>Faker.fetch(<span class="pl-s"><span class="pl-pds">'</span>address.country<span class="pl-pds">'</span></span>); <span class="pl-c">// =&gt; 'Nepal'</span>
-Faker.fetch(<span class="pl-s"><span class="pl-pds">'</span>address.state<span class="pl-pds">'</span></span>); <span class="pl-c">// =&gt; 'Alaska'</span>
+Faker.fetch(<span class="pl-s"><span class="pl-pds">'</span>address.state<span class="pl-pds">'</span></span>); <span class="pl-c">// =&gt; 'Baglung'</span>
 Faker.fetch(<span class="pl-s"><span class="pl-pds">'</span>address.zip<span class="pl-pds">'</span></span>); <span class="pl-c">// =&gt; '12312'</span>
 Faker.fetch(<span class="pl-s"><span class="pl-pds">'</span>address.postCode<span class="pl-pds">'</span></span>); <span class="pl-c">// =&gt; '123'</span>
-Faker.fetch(<span class="pl-s"><span class="pl-pds">'</span>address.streetAddress<span class="pl-pds">'</span></span>); <span class="pl-c">// =&gt; '282 Kevin Brook'</span>
+Faker.fetch(<span class="pl-s"><span class="pl-pds">'</span>address.streetAddress<span class="pl-pds">'</span></span>); <span class="pl-c">// =&gt; 'JANE ROE 200 E MAIN ST PHOENIX AZ 85123 USA'</span>
 Faker.fetch(<span class="pl-s"><span class="pl-pds">'</span>address.stateAbbr<span class="pl-pds">'</span></span>); <span class="pl-c">// =&gt; 'AL'</span>
 Faker.fetch(<span class="pl-s"><span class="pl-pds">'</span>address.city<span class="pl-pds">'</span></span>); <span class="pl-c">// =&gt; 'Pokhara'</span>
 Faker.fetch(<span class="pl-s"><span class="pl-pds">'</span>address.phone<span class="pl-pds">'</span></span>); <span class="pl-c">// =&gt; '111-222-3333'</span>
@@ -186,18 +171,22 @@ Faker.fetch(<span class="pl-s"><span class="pl-pds">'</span>address.buildingNumb
 
 <p><strong>Company</strong></p>
 
-<div class="highlight highlight-javascript"><pre>Faker.fetch(<span class="pl-s"><span class="pl-pds">'</span>company.name<span class="pl-pds">'</span></span>); <span class="pl-c">// =&gt; 'Global IME'</span>
-Faker.fetch(<span class="pl-s"><span class="pl-pds">'</span>company.website<span class="pl-pds">'</span></span>); <span class="pl-c">// =&gt; 'a.com'</span>
-Faker.fetch(<span class="pl-s"><span class="pl-pds">'</span>company.title<span class="pl-pds">'</span></span>); <span class="pl-c">// =&gt; 'Lorem Ipsum'</span>
-Faker.fetch(<span class="pl-s"><span class="pl-pds">'</span>company.description<span class="pl-pds">'</span></span>); <span class="pl-c">// =&gt; 'Lorem Description'</span></pre></div>
+<div class="highlight highlight-javascript"><pre>Faker.fetch(<span class="pl-s"><span class="pl-pds">'</span>company.name<span class="pl-pds">'</span></span>); <span class="pl-c">// =&gt; 'Can Do Coffee Distributors'</span>
+Faker.fetch(<span class="pl-s"><span class="pl-pds">'</span>company.website<span class="pl-pds">'</span></span>); <span class="pl-c">// =&gt; 'aliexpress.com'</span>
+Faker.fetch(<span class="pl-s"><span class="pl-pds">'</span>company.title<span class="pl-pds">'</span></span>); <span class="pl-c">// =&gt; 'A Separate Peace'</span>
+Faker.fetch(<span class="pl-s"><span class="pl-pds">'</span>company.description<span class="pl-pds">'</span></span>); <span class="pl-c">// =&gt; 'Artificial intelligence is no match for natural stupidity.'</span></pre></div>
 
-<p><strong>Peronal</strong></p>
+<p><strong>Personal</strong></p>
 
 <div class="highlight highlight-javascript"><pre>Faker.fetch(<span class="pl-s"><span class="pl-pds">'</span>personal.academic<span class="pl-pds">'</span></span>); <span class="pl-c">// =&gt; 'MBA'</span></pre></div>
 
 <p><strong>Domain Name</strong></p>
 
 <div class="highlight highlight-javascript"><pre>Faker.fetch(<span class="pl-s"><span class="pl-pds">'</span>domainName<span class="pl-pds">'</span></span>); <span class="pl-c">// =&gt; 'gmail.com'</span></pre></div>
+
+<p><strong>Business</strong></p>
+
+<div class="highlight highlight-javascript"><pre>Faker.fetch(<span class="pl-s"><span class="pl-pds">'</span>business.creditCardNumbers<span class="pl-pds">'</span></span>); <span class="pl-c">// =&gt; '4111111111111111'</span></pre></div>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/abhinavmsra/jQuery-faker">Jquery-faker</a> is maintained by <a href="https://github.com/abhinavmsra">abhinavmsra</a>.</span>
@@ -207,11 +196,7 @@ Faker.fetch(<span class="pl-s"><span class="pl-pds">'</span>company.description<
 
     </section>
 
-  <script type="text/javascript" src="js/jquery.min.js"></script>
-  <script type="text/javascript" src="js/faker.js"></script>
-  <script type="text/javascript">
-   $( "form" ).fakify();
-  </script>
+  
   </body>
 </html>
 
