@@ -280,8 +280,8 @@ $.fakifyDictionary = {
     },
     company: {
         name: ['Advanced Business Analysis', 'Advocate Services', 'African Internet Solutions.',
-                'Bennie’s Fishery', 'Bent Steel and Smelter', 'Best Friends Grooming Service',
-                'Canadafab Steel', 'Can Do Coffee Distributors', 'Cat’s Eye Technologies'],
+                'Bennie\'s Fishery', 'Bent Steel and Smelter', 'Best Friends Grooming Service',
+                'Canadafab Steel', 'Can Do Coffee Distributors', 'Cat\'s Eye Technologies'],
         website: ['google.com', 'wikipedia.org', 'amazon.com', 'taobao.com', 'linkedin.com', 'tumblr.com',
                   'pinterest.com', 'aliexpress.com', 'stackoverflow.com'],
         title: ['Your Brain on Drugs', 'A Separate Peace', 'Death by Dessert', 'The Chicago Manual of Style'],
