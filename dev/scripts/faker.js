@@ -38,8 +38,7 @@
                 if ($.type(val) === 'array') {
                     if ($.inArray(formatName(element.name), val) >= 0) {
                         mappedKey += key;
-                        var fakerObj = new Faker();
-                        $('[name="' + element.name + '"]').val(fakerObj.fetch(mappedKey));
+                        $('[name="' + element.name + '"]').val(Faker.fetch(mappedKey));
                     }
                     else {
                         mappedKey = '';
@@ -56,7 +55,7 @@
             if (options !== undefined) {
                 $.each(options, function (key, value) {
                     if (value !== null && key !== 'except') {
-                        var element = $('[name="' + key + '"]')[0];
+                        var element = $('[name="' + key + '"]');
                         var objFaker = new Faker();
                         if ($.type(value) === 'array') {
                             specifiedOption.push(key);
@@ -80,7 +79,7 @@
             });
 
             function formatName(name) {
-                return name.split("][")[1].slice(0, -1);
+                return name.split('][')[1].slice(0, -1);
             }
         });
     };
@@ -188,17 +187,17 @@ function Faker() {
 
 $.fakifyDictionary = {
     name: {
-        firstName: [ "Aarav", "Ajita", "Amit", "Amita", "Amrit", "Arijit", "Ashmi", "Asmita", "Bibek", "Bijay", "Bikash", "Bina", "Bishal", "Bishnu", "Buddha", "Deepika", "Dipendra", "Gagan", "Ganesh", "Khem", "Krishna", "Laxmi", "Manisha", "Nabin", "Nikita", "Niraj", "Nischal", "Padam", "Pooja", "Prabin", "Prakash", "Prashant", "Prem", "Purna", "Rajendra", "Rajina", "Raju", "Rakesh", "Ranjan", "Ratna", "Sagar", "Sandeep", "Sanjay", "Santosh", "Sarita", "Shilpa", "Shirisha", "Shristi", "Siddhartha", "Subash", "Sumeet", "Sunita", "Suraj", "Susan", "Sushant"],
-        middleName: ["Sharma", "Lal", "Raj", "Prasad", "Dip", "Kumar", "Bhatta"],
-        lastName: ["Adhikari", "Aryal", "Baral", "Basnet", "Bastola", "Basynat", "Bhandari", "Bhattarai", "Chettri", "Devkota", "Dhakal", "Dongol", "Ghale", "Gurung", "Gyawali", "Hamal", "Jung", "KC", "Kafle", "Karki", "Khadka", "Koirala", "Lama", "Limbu", "Magar", "Maharjan", "Niroula", "Pandey", "Pradhan", "Rana", "Raut", "Sai", "Shai", "Shakya", "Sherpa", "Shrestha", "Subedi", "Tamang", "Thapa"]
+        firstName: [ 'Aarav', 'Ajita', 'Amit', 'Amita', 'Amrit', 'Arijit', 'Ashmi', 'Asmita', 'Bibek', 'Bijay', 'Bikash', 'Bina', 'Bishal', 'Bishnu', 'Buddha', 'Deepika', 'Dipendra', 'Gagan', 'Ganesh', 'Khem', 'Krishna', 'Laxmi', 'Manisha', 'Nabin', 'Nikita', 'Niraj', 'Nischal', 'Padam', 'Pooja', 'Prabin', 'Prakash', 'Prashant', 'Prem', 'Purna', 'Rajendra', 'Rajina', 'Raju', 'Rakesh', 'Ranjan', 'Ratna', 'Sagar', 'Sandeep', 'Sanjay', 'Santosh', 'Sarita', 'Shilpa', 'Shirisha', 'Shristi', 'Siddhartha', 'Subash', 'Sumeet', 'Sunita', 'Suraj', 'Susan', 'Sushant'],
+        middleName: ['Sharma', 'Lal', 'Raj', 'Prasad', 'Dip', 'Kumar', 'Bhatta'],
+        lastName: ['Adhikari', 'Aryal', 'Baral', 'Basnet', 'Bastola', 'Basynat', 'Bhandari', 'Bhattarai', 'Chettri', 'Devkota', 'Dhakal', 'Dongol', 'Ghale', 'Gurung', 'Gyawali', 'Hamal', 'Jung', 'KC', 'Kafle', 'Karki', 'Khadka', 'Koirala', 'Lama', 'Limbu', 'Magar', 'Maharjan', 'Niroula', 'Pandey', 'Pradhan', 'Rana', 'Raut', 'Sai', 'Shai', 'Shakya', 'Sherpa', 'Shrestha', 'Subedi', 'Tamang', 'Thapa']
     },
     address: {
         country: ['Afghanistan', 'Albania', 'Algeria', 'American Samoa', 'Andorra', 'Angola', 'Anguilla', 'Antarctica (the territory South of 60 deg S)', 'Antigua and Barbuda', 'Argentina', 'Armenia', 'Aruba', 'Australia', 'Austria', 'Azerbaijan', 'Bahamas', 'Bahrain', 'Bangladesh', 'Barbados', 'Belarus', 'Belgium', 'Belize', 'Benin', 'Bermuda', 'Bhutan', 'Bolivia', 'Bosnia and Herzegovina', 'Botswana', 'Bouvet Island (Bouvetoya)', 'Brazil', 'British Indian Ocean Territory (Chagos Archipelago)', 'Brunei Darussalam', 'Bulgaria', 'Burkina Faso', 'Burundi', 'Cambodia', 'Cameroon', 'Canada', 'Cape Verde', 'Cayman Islands', 'Central African Republic', 'Chad', 'Chile', 'China', 'Christmas Island', 'Cocos (Keeling) Islands', 'Colombia', 'Comoros', 'Congo', 'Cook Islands', 'Costa Rica', 'Cote d\'Ivoire', 'Croatia', 'Cuba', 'Cyprus', 'Czech Republic', 'Denmark', 'Djibouti', 'Dominica', 'Dominican Republic', 'Ecuador', 'Egypt', 'El Salvador', 'Equatorial Guinea', 'Eritrea', 'Estonia', 'Ethiopia', 'Faroe Islands', 'Falkland Islands (Malvinas)', 'Fiji', 'Finland', 'France', 'French Guiana', 'French Polynesia', 'French Southern Territories', 'Gabon', 'Gambia', 'Georgia', 'Germany', 'Ghana', 'Gibraltar', 'Greece', 'Greenland', 'Grenada', 'Guadeloupe', 'Guam', 'Guatemala', 'Guernsey', 'Guinea', 'Guinea-Bissau', 'Guyana', 'Haiti', 'Heard Island and McDonald Islands', 'Holy See (Vatican City State)', 'Honduras', 'Hong Kong', 'Hungary', 'Iceland', 'India', 'Indonesia', 'Iran', 'Iraq', 'Ireland', 'Isle of Man', 'Israel', 'Italy', 'Jamaica', 'Japan', 'Jersey', 'Jordan', 'Kazakhstan', 'Kenya', 'Kiribati', 'Democratic People\'s Republic of Korea', 'Republic of Korea', 'Kuwait', 'Kyrgyz Republic', 'Lao People\'s Democratic Republic', 'Latvia', 'Lebanon', 'Lesotho', 'Liberia', 'Libyan Arab Jamahiriya', 'Liechtenstein', 'Lithuania', 'Luxembourg', 'Macao', 'Macedonia', 'Madagascar', 'Malawi', 'Malaysia', 'Maldives', 'Mali', 'Malta', 'Marshall Islands', 'Martinique', 'Mauritania', 'Mauritius', 'Mayotte', 'Mexico', 'Micronesia', 'Moldova', 'Monaco', 'Mongolia', 'Montenegro', 'Montserrat', 'Morocco', 'Mozambique', 'Myanmar', 'Namibia', 'Nauru', 'Nepal', 'Netherlands Antilles', 'Netherlands', 'New Caledonia', 'New Zealand', 'Nicaragua', 'Niger', 'Nigeria', 'Niue', 'Norfolk Island', 'Northern Mariana Islands', 'Norway', 'Oman', 'Pakistan', 'Palau', 'Palestinian Territory', 'Panama', 'Papua New Guinea', 'Paraguay', 'Peru', 'Philippines', 'Pitcairn Islands', 'Poland', 'Portugal', 'Puerto Rico', 'Qatar', 'Reunion', 'Romania', 'Russian Federation', 'Rwanda', 'Saint Barthelemy', 'Saint Helena', 'Saint Kitts and Nevis', 'Saint Lucia', 'Saint Martin', 'Saint Pierre and Miquelon', 'Saint Vincent and the Grenadines', 'Samoa', 'San Marino', 'Sao Tome and Principe', 'Saudi Arabia', 'Senegal', 'Serbia', 'Seychelles', 'Sierra Leone', 'Singapore', 'Slovakia (Slovak Republic)', 'Slovenia', 'Solomon Islands', 'Somalia', 'South Africa', 'South Georgia and the South Sandwich Islands', 'Spain', 'Sri Lanka', 'Sudan', 'Suriname', 'Svalbard & Jan Mayen Islands', 'Swaziland', 'Sweden', 'Switzerland', 'Syrian Arab Republic', 'Taiwan', 'Tajikistan', 'Tanzania', 'Thailand', 'Timor-Leste', 'Togo', 'Tokelau', 'Tonga', 'Trinidad and Tobago', 'Tunisia', 'Turkey', 'Turkmenistan', 'Turks and Caicos Islands', 'Tuvalu', 'Uganda', 'Ukraine', 'United Arab Emirates', 'United Kingdom', 'United States of America', 'United States Minor Outlying Islands', 'Uruguay', 'Uzbekistan', 'Vanuatu', 'Venezuela', 'Vietnam', 'Virgin Islands', 'Britain', 'Virgin Islands', 'U.S.', 'Wallis and Futuna', 'Western Sahara', 'Yemen', 'Zambia', 'Zimbabwe'],
-        state: ["Baglung", "Banke", "Bara", "Bardiya", "Bhaktapur", "Bhojupu", "Chitwan", "Dailekh", "Dang", "Dhading", "Dhankuta", "Dhanusa", "Dolakha", "Dolpha", "Gorkha", "Gulmi", "Humla", "Ilam", "Jajarkot", "Jhapa", "Jumla", "Kabhrepalanchok", "Kalikot", "Kapilvastu", "Kaski", "Kathmandu", "Lalitpur", "Lamjung", "Manang", "Mohottari", "Morang", "Mugu", "Mustang", "Myagdi", "Nawalparasi", "Nuwakot", "Palpa", "Parbat", "Parsa", "Ramechhap", "Rauswa", "Rautahat", "Rolpa", "Rupandehi", "Sankhuwasabha", "Sarlahi", "Sindhuli", "Sindhupalchok", "Sunsari", "Surket", "Syangja", "Tanahu", "Terhathum"],
+        state: ['Baglung', 'Banke', 'Bara', 'Bardiya', 'Bhaktapur', 'Bhojupu', 'Chitwan', 'Dailekh', 'Dang', 'Dhading', 'Dhankuta', 'Dhanusa', 'Dolakha', 'Dolpha', 'Gorkha', 'Gulmi', 'Humla', 'Ilam', 'Jajarkot', 'Jhapa', 'Jumla', 'Kabhrepalanchok', 'Kalikot', 'Kapilvastu', 'Kaski', 'Kathmandu', 'Lalitpur', 'Lamjung', 'Manang', 'Mohottari', 'Morang', 'Mugu', 'Mustang', 'Myagdi', 'Nawalparasi', 'Nuwakot', 'Palpa', 'Parbat', 'Parsa', 'Ramechhap', 'Rauswa', 'Rautahat', 'Rolpa', 'Rupandehi', 'Sankhuwasabha', 'Sarlahi', 'Sindhuli', 'Sindhupalchok', 'Sunsari', 'Surket', 'Syangja', 'Tanahu', 'Terhathum'],
         address: ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia'],
         streetAddress: ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia'],
         state_abbr: ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT'],
-        city: ["Bhaktapur", "Biratnagar", "Birendranagar", "Birgunj", "Butwal", "Damak", "Dharan", "Gaur", "Gorkha", "Hetauda", "Itahari", "Janakpur", "Kathmandu", "Lahan", "Nepalgunj", "Pokhara"],
+        city: ['Bhaktapur', 'Biratnagar', 'Birendranagar', 'Birgunj', 'Butwal', 'Damak', 'Dharan', 'Gaur', 'Gorkha', 'Hetauda', 'Itahari', 'Janakpur', 'Kathmandu', 'Lahan', 'Nepalgunj', 'Pokhara'],
         phone: ['123-456-789', '546-666-888', '544-666-998'],
         extension: ['3456', '1234', '7890'],
         fax_number: ['444-555-555', '333-555-5577'],
