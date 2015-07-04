@@ -185,6 +185,21 @@ function Faker() {
         var domainPart = that.getMeValueOf('domainName');
         bestMatch.push(localPart + that.emailSeparator + domainPart);
         break;
+      case 'phone':
+        bestMatch.push(that.generateValue('98nnnnnnnn'));
+        break;
+      case 'faxNumber':
+        bestMatch.push(that.generateValue('nnn-nnn-nnnn'));
+        break;
+      case 'address.zip':
+        bestMatch.push(that.generateValue('nnnnn'));
+        break;
+      case 'address.extension':
+        bestMatch.push(that.generateValue('nnnn'));
+        break;
+      case 'address.building_number':
+        bestMatch.push(that.generateValue('nnnn'));
+        break;
       case undefined:
         bestMatch.push(that.getMeValueOf(null, domain));
         break;
@@ -201,7 +216,6 @@ function Faker() {
    *  @param index [String], indexing for the database
    *  @return [String], bestMatch for the element
    * */
-
   this.getMeValueOf = function (index, customArray) {
     var domain = [];
     if (customArray === undefined) {
@@ -213,6 +227,22 @@ function Faker() {
     var seedIndex = Faker.randInt((domain.length - 1), that.lowerIndex);
     return domain[seedIndex];
   };
+
+  /*
+  * Generates zip, postal-code or phone according to
+  * the format specified.
+  *
+  * @param format[String]
+  * @return [String], zip/postal-cord/phone
+  * */
+  this.generateValue = function (format) {
+    var n = "01234567890".split("");
+    var data = format.replace(/n/g, function () {
+      var i = Faker.randInt(n.length, 0);
+      return n.slice(i, i + 1)[0];
+    });
+    return data;
+  }
 }
 
 /*
