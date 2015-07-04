@@ -14,14 +14,15 @@ _add a demo site either fiddle or our github site_
 
 * **Automatic data generation for the forms**
 * Detects the input type and adds random relevant values.
-* Customized data type for user convenience.
-* Add new data and data type
+* Supports randomization of radio button, check box, select box
+* Customized data type for user convenience
+* Add new data and data types
+* Restrict data to user defined values for each data types
+* Generate fake data within your project right away
 * Easy to use and extend :wink:
 
 ## Future Enhancements
 
-* Restrict data of the existent datatype to user defined values
-* Include support for all types of inputs `eg: select, radio, checkbox`
 * Add regular expression match for more magic
 * Make even better internal knowledgebase for even more magic
 * Allow custom field to be created based on datatype only, no need to define the data itself
@@ -35,7 +36,7 @@ _add a demo site either fiddle or our github site_
 
 **Because all the other faker plugins are just fakes.** Not all plugins gave the automation we seeked, we had to map each of our input fields to the data, and some even didnt gave random data. We found some browser plugins but we needed to setup different browser extensions which is much tedious.
 
-**Adding it wont hurt you.** You won't need any significant change. It'll just give life to those blank input fields so you dont have to type again and again each time you refresh the browser.
+**Adding it wont hurt you.** You won't need any significant change. It'll just give life to those blank input fields, selects, radio buttons, check boxes,  so you dont have to type again and again each time you refresh the browser.
 ```javascript
 $( "form" ).fakify();
 ```
@@ -79,19 +80,39 @@ $("#myform").fakify();
 
 **Advanced usage**
 ```html
-<form action="#" method="post" id="myform">
-  <input type="text" name="fname" id="fname">
-  <input type="text" name="mname" id="mname">
-  <input type="text" name="lname" id="lname">
-  <input type="text" name="nick_name" id="nname">
-  <input type="submit"
+<form id="my_form" name="my_form" method="post">
+  <input id="customer_fname" name="customer[username]" type="text">
+  <input id="customer_mname" name="customer[mname]" type="text">
+  <input id="customer_lname" name="customer[lname]" type="text">
+  <input id="customer_email" name="customer[email]" type="text">
+  <input id="customer_nick_name" name="customer[nick_name]" type="text">
+  <input id="customer_city" name="city" type="text"> <!--supports various methods of writing name-->
+  <input id="customer_country" name="customer[country]" type="text">
+  <input id="customer_address_1" name="customer[address_1]" type="text">
+  <input type="checkbox" name="vehicle" value="Bike">I have a bike
+  <input type="checkbox" name="vehicle" value="Car">I have a car
+  <input type="checkbox" name="vehicle" value="Bike">I have a bus
+  <input type="checkbox" name="vehicle" value="Car">I have a Radio
+  <input type="radio" name="radioGroup" value="1"> One</input>
+  <input type="radio" name="radioGroup" value="2"> Two</input>
+  <input type="radio" name="radioGroup" value="3"> Three</input>
+  <input type="radio" name="radioGroup" value="4"> Four</input>
+  <select>
+    <option value="default" disabled="disabled">Select one--</option>
+    <option value="volvo">Volvo</option>
+    <option value="saab">Saab</option>
+    <option value="mercedes">Mercedes</option>
+    <option value="audi">Audi</option>
+  </select>
+
 </form>
 ```
 
 ```javascript
 $("#myform").fakify({
-  "except": ["mname"], // Keep mname from autogenerating
-  "address": "street_address", // Map address field to street_address
-  "nick_name": ["Chaure", "Dalley", "Daure", "Bhyagute", "Gole"] //add custom datatype along with the data
+  "except": ["customer[mname]","city"], // Keep mname and city from autogenerating
+  "customer[address_1]": "street_address", // Map address_1 field to street_address
+  "customer[nick_name]": ["Chaure", "Dalley", "Daure", "Bhyagute", "Gole"] // add custom datatype along with the data
+  "customer[country]": ["Nepal", "China"] // restrict country data type to "Nepal" and "china" only
 });
 ```
