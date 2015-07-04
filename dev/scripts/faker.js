@@ -19,13 +19,9 @@
           country: ['country'],
           state: ['state'],
           zip: ['zipcode', 'zip', 'postcode', 'postcode_by_state'],
-          streetAddress: ['street_address', 'street', 'street_name'],
+          streetAddress: ['street_address', 'street', 'street_name', 'address'],
           stateAbbr: ['state_abbr'],
-          city: ['city'],
-          phone: ['cell_phone', 'phone', 'phone_number'],
-          extension: ['extension', 'ext'],
-          faxNumber: ['fax_number', 'fax'],
-          buildingNumber: ['building_number']
+          city: ['city']
         },
         company: {
           name: ['company_name', 'c_name', 'organization_name', 'name'],
@@ -40,7 +36,11 @@
         email: ['email', 'mailto', 'free_email', 'internet_email', 'mailTo', 'freeEmail', 'internetEmail'],
         business: {
           creditCardNumbers: ['credit_card', 'creditCard']
-        }
+        },
+        phone: ['cell_phone', 'phone', 'phone_number'],
+        extension: ['extension', 'ext'],
+        faxNumber: ['fax_number', 'fax'],
+        buildingNumber: ['building_number']
       };
 
       /*
