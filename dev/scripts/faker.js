@@ -8,9 +8,7 @@
                 name: {
                     firstName: ['f_name', 'fname', 'first_name', 'firstname', 'fstname'],
                     middleName: ['m_name', 'mname', 'middle_name', 'middlename'],
-                    lastName: ['l_name', 'lname', 'last_name', 'lastname', 'lstname'],
-                    title: ['title'],
-                    fullName: ['fullName']
+                    lastName: ['l_name', 'lname', 'last_name', 'lastname', 'lstname']
                 },
                 address: {
                     country: ['country'],
@@ -53,8 +51,8 @@
                 }
             };
 
-            var excludeOption = new Array();
-            var specifiedOption = new Array();
+            var excludeOption = [];
+            var specifiedOption = [];
 
             if (options !== undefined) {
                 $.each(options, function (key, value) {
@@ -91,7 +89,7 @@
 
             var selectTagArray = $('#' + $this.id + ' select');
             $.each(selectTagArray, function(index, element){
-                this.selectedIndex = Faker.randInt(this.children.length-1, 0);
+                this.selectedIndex = Faker.randInt(this.children.length-1, 1);
             });
 
 
@@ -99,7 +97,7 @@
                 return name.substring(name.lastIndexOf("[") + 1, name.lastIndexOf("]"));
             }
         });
-    }
+    };
 })(jQuery, window, document);
 
 
@@ -144,6 +142,9 @@ function Faker() {
             case undefined:
                 bestMatch.push(that.getMeValueOf(null, domain));
                 break;
+              default:
+              bestMatch.push('company.description');
+              break;
         }
         return bestMatch.join(' ');
     };
