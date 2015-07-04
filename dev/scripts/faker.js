@@ -116,7 +116,7 @@
        * */
       $('#' + $this.id + ' input:text[type!=hidden]').each(function () {
         if (($.inArray(formatName(this.name), excludeOption) < 0) && ($.inArray(this.name, specifiedOption) < 0)) {
-            
+
           $.each(faker, recurse.bind(null, '', this));
         }
       });
