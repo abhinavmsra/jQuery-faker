@@ -1,4 +1,5 @@
-;(function ($, window, document, undefined) {
+;
+(function ($, window, document, undefined) {
     'use strict';
     $.fn.fakify = function (options) {
         var $this = this[0];
@@ -7,25 +8,25 @@
                 name: {
                     firstName: ['f_name', 'fname', 'first_name', 'firstname', 'fstname'],
                     middleName: ['m_name', 'mname', 'middle_name', 'middlename'],
-                    lastName: ['l_name', 'lname', 'last_name', 'lastname', 'lstname']
+                    lastName: ['l_name', 'lname', 'last_name', 'lastname', 'lstname'],
+                    fullName: ['name']
                 },
                 address: {
                     country: ['country'],
                     state: ['state'],
                     zip: ['zipcode', 'zip'],
-                    postcode: ['postcode', 'postcode_by_state'],
                     address: ['address', 'secondary_address', 'primary_address'],
-                    street_address: ['street_address', 'street', 'street_name'],
-                    state_abbr: ['state_abbr'],
+                    streetAddress: ['street_address', 'street', 'street_name'],
+                    stateAbbr: ['state_abbr'],
                     city: ['city'],
-                    phone: ['cell_phone', 'phone', 'phone_number'],
                     extension: ['extension', 'ext'],
-                    fax_number: ['fax_number', 'fax'],
                     building_number: ['building_number'],
                     department: ['department']
                 },
+                phone: ['cell_phone', 'phone', 'phone_number'],
+                faxNumber: ['fax_number', 'fax'],
                 company: {
-                    name: ['company_name', 'c_name', 'organization_name', 'name'],
+                    name: ['company_name', 'c_name', 'organization_name'],
                     website: ['url', 'website', 'web_address', 'web-address'],
                     title: ['title'],
                     description: ['description', 'desc']
@@ -40,6 +41,7 @@
                     if ($.inArray(formatName(element.name), val) >= 0) {
                         mappedKey += key;
                         $('[name="' + element.name + '"]').val(Faker.fetch(mappedKey));
+                        return false;
                     }
                     else {
                         mappedKey = '';
@@ -66,34 +68,37 @@
                         }
                     }
 
-                    if (key === 'except' && $.type(value) === 'array') {
+                    if (key === 'except' && value.constructor === Array) {
                         excludeOption = value;
                     }
                 });
             }
-
             $('#' + $this.id + ' input[type!=hidden]').each(function () {
+
                 if (($.inArray(this.name, excludeOption) < 0) && ($.inArray(this.name, specifiedOption) < 0)) {
-                    if ($(this).attr('type').toLowerCase() === 'checkbox') {
-                        $(this).prop('checked', Faker.randBool());
-                    } else {
-                        $.each(faker, recurse.bind(null, '', this));
-                    }
+                    $.each(faker, recurse.bind(null, '', this));
                 }
             });
 
+            var checkBoxArray =  $('#' + $this.id + ' input[type=checkbox]');
+
+            $.each(checkBoxArray, function(){
+                $(this).prop('checked', Faker.randBool());
+            });
+
             var radioArray = $('#' + $this.id + ' input[type=radio]');
-            $(radioArray[Faker.randInt( radioArray.length - 1 ,0)]).attr('checked',true);
+            $(radioArray[Faker.randInt(radioArray.length - 1, 0)]).attr('checked', true);
 
 
             var selectTagArray = $('#' + $this.id + ' select');
-            $.each(selectTagArray, function(){
-                this.selectedIndex = Faker.randInt(this.children.length-1, 1);
+            $.each(selectTagArray, function () {
+                this.selectedIndex = Faker.randInt(this.children.length - 1, 1);
             });
 
 
             function formatName(name) {
-                return name.substring(name.lastIndexOf("[") + 1, name.lastIndexOf("]"));
+                var token = name.substring(name.lastIndexOf("[") + 1, name.lastIndexOf("]"));
+                return token ? token : name;
             }
         });
     };
@@ -138,12 +143,27 @@ function Faker() {
                 var domainPart = that.getMeValueOf('domainName');
                 bestMatch.push(localPart + that.emailSeparator + domainPart);
                 break;
+            case 'phone':
+                bestMatch.push(that.generateValue('98nnnnnnnn'));
+                break;
+            case 'faxNumber':
+                bestMatch.push(that.generateValue('nnn-nnn-nnnn'));
+                break;
+            case 'address.zip':
+                bestMatch.push(that.generateValue('nnnnn'));
+                break;
+            case 'address.extension':
+                bestMatch.push(that.generateValue('nnnn'));
+                break;
+           case 'address.building_number':
+                bestMatch.push(that.generateValue('nnnn'));
+                break;
             case undefined:
                 bestMatch.push(that.getMeValueOf(null, domain));
                 break;
-              default:
-              bestMatch.push('company.description');
-              break;
+            default:
+                bestMatch.push('company.description');
+                break;
         }
         return bestMatch.join(' ');
     };
@@ -167,6 +187,15 @@ function Faker() {
         var seedIndex = Faker.randInt((domain.length - 1), that.lowerIndex);
         return domain[seedIndex];
     };
+
+    this.generateValue = function(format){
+        var n = "01234567890".split("");
+            var data = format.replace(/n/g, function() {
+                var i = Faker.randInt(n.length, 0);
+                return n.slice(i, i + 1)[0];
+            });
+        return data;
+    }
 }
 
 /*
@@ -210,7 +239,7 @@ Faker.randInt = function (max, min) {
  * @return [Boolean]
  */
 Faker.randBool = function () {
-    return (Faker.randInt(100,0) % 2 === 0 );
+    return (Faker.randInt(100, 0) % 2 === 0 );
 };
 
 $.fakifyDictionary = {
@@ -222,16 +251,12 @@ $.fakifyDictionary = {
     address: {
         country: ["Nepal", "India", "Bhutan"],
         state: ["Kathmandu", "Delhi", "Chennai"],
-        zip: ["009977", "12312", "43211"],
-        postcode: ["123"],
         address: ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia'],
         streetAddress: ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia'],
-        state_abbr: ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT'],
+        stateAbbr: ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT'],
         city: ['Ktm', 'Pokhara', 'Butwal'],
-        phone: ['123-456-789', '546-666-888', '544-666-998'],
-        extension: ['3456', '1234', '7890'],
-        fax_number: ['444-555-555', '333-555-5577'],
-        building_number: ['123', '6789', '9870'],
+        faxNumber: ['444-555-555', '333-555-5577'],
+        buildinNumber: ['123', '6789', '9870'],
         department: ['HR', 'Finance']
     },
     company: {
