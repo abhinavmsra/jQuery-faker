@@ -70,6 +70,7 @@
         if (val.constructor === Array) {
           if ($.inArray(formatName(element.name), val) >= 0) {
             mappedKey += key;
+              debugger;
             $('[name="' + element.name + '"]').val(Faker.fetch(mappedKey));
           }
           else {
@@ -93,17 +94,18 @@
         $.each(options, function (key, value) {
           if (value !== null && key !== 'except') {
             var element = $('[name="' + key + '"]');
-            if ($.type(value).constructor === Array) {
+            if (value.constructor === Array) {
               specifiedOption.push(key);
               $(element).val(Faker.fetch(undefined, value));
             } else {
               specifiedOption.push(key);
-              $(element).val(Faker.fetch(value));
+              $(element).val(Faker.fetch(formatName(key)));
             }
           }
 
           if (key === 'except' && value.constructor === Array) {
             excludeOption = value;
+              debugger;
           }
         });
       }
@@ -113,7 +115,8 @@
        * and tries to assign a bestMatch value to it based on it's name
        * */
       $('#' + $this.id + ' input:text[type!=hidden]').each(function () {
-        if (($.inArray(this.name, excludeOption) < 0) && ($.inArray(this.name, specifiedOption) < 0)) {
+        if (($.inArray(formatName(this.name), excludeOption) < 0) && ($.inArray(this.name, specifiedOption) < 0)) {
+            
           $.each(faker, recurse.bind(null, '', this));
         }
       });
@@ -255,6 +258,7 @@ function Faker() {
  *  @return [String], bestMatch to fill the form
  * */
 Faker.fetch = function (key, domain) {
+    debugger;
   var objFaker = new Faker();
   if (!key) {
     key = 'notFound';
