@@ -14,9 +14,8 @@ describe('Checking the fetch function', function () {
     });
 
     it('should return an element from phone', function () {
-      var reply = Faker.fetch('address.phone');
-      var includesReply = ($.fakifyDictionary.address.phone.indexOf(reply) > -1);
-      expect(includesReply).toEqual(true);
+      var reply = Faker.fetch('phone');
+      expect(reply.length).toEqual(10);
     });
 
     it('should return an element from company', function () {
