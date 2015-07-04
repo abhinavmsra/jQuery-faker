@@ -54,7 +54,7 @@ $( "form" ).fakify();
 ## Advanced usage
 ```javascript
 $('#form1').fakify({
-           "[applicant][name]": "fullname", // map name to the fullname in our database
+           "[applicant][name]": "name.fullname", // map name to the fullname in our database
            "[customer][district]": ["Kathmandu", "Lalitpur", "Bhaktpur"], // add new datatype district to our database
            "except": ["country", "address_2", "website"] //don't assign values to the given fields
        });
@@ -111,8 +111,55 @@ $("#myform").fakify();
 ```javascript
 $("#myform").fakify({
   "except": ["customer[mname]","city"], // Keep mname and city from autogenerating
-  "customer[address_1]": "street_address", // Map address_1 field to street_address
+  "customer[address_1]": "address.streetAddress", // Map address_1 field to street_address
   "customer[nick_name]": ["Chaure", "Dalley", "Daure", "Bhyagute", "Gole"] // add custom datatype along with the data
   "customer[country]": ["Nepal", "China"] // restrict country data type to "Nepal" and "china" only
 });
+```
+
+## Generators
+
+**Name**
+```javascript
+Faker.fetch('name.firstName'); // => 'Hari'
+Faker.fetch('name.middleName'); // => 'Nath'
+Faker.fetch('name.lastName'); // => 'Acharya'
+Faker.fetch('name.fullName'); // => 'Shyam Raj Basnet'
+```
+
+**Address**
+
+```javascript
+Faker.fetch('address.country'); // => 'Nepal'
+Faker.fetch('address.state'); // => 'Alaska'
+Faker.fetch('address.zip'); // => '12312'
+Faker.fetch('address.postCode'); // => '123'
+Faker.fetch('address.streetAddress'); // => '282 Kevin Brook'
+Faker.fetch('address.stateAbbr'); // => 'AL'
+Faker.fetch('address.city'); // => 'Pokhara'
+Faker.fetch('address.phone'); // => '111-222-3333'
+Faker.fetch('address.extension'); // => '3456'
+Faker.fetch('address.faxNumber'); // => '444-555-5555'
+Faker.fetch('address.buildingNumber'); // => '123'
+```
+
+**Company**
+
+```javascript
+Faker.fetch('company.name'); // => 'Global IME'
+Faker.fetch('company.website'); // => 'a.com'
+Faker.fetch('company.title'); // => 'Lorem Ipsum'
+Faker.fetch('company.description'); // => 'Lorem Description'
+```
+
+**Peronal**
+
+```javascript
+Faker.fetch('personal.academic'); // => 'MBA'
+```
+
+**Domain Name**
+
+```javascript
+Faker.fetch('domainName'); // => 'gmail.com'
 ```
