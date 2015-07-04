@@ -24,12 +24,12 @@ _add a demo site either fiddle or our github site_
 ## Future Enhancements
 
 * Add regular expression match for more magic
-* Make even better internal knowledgebase for even more magic
+* Make even better internal knowledge base for even more magic
 * Allow custom field to be created based on datatype only, no need to define the data itself
 * Allow users to switch to bug mode where incorrect data is fed to the fields to check the vulnerabilities
 * Automatic disable in production environment
 * Auto detect confirmation fields
-* Support minimum and maximum values for numerical/date datatypes
+* Support minimum and maximum values for numerical/date data-types
 * Match with multiple input attributes
 
 ## Why do I need this?
@@ -37,8 +37,9 @@ _add a demo site either fiddle or our github site_
 **Because all the other faker plugins are just fakes.** Not all plugins gave the automation we seeked, we had to map each of our input fields to the data, and some even didnt gave random data. We found some browser plugins but we needed to setup different browser extensions which is much tedious.
 
 **Adding it wont hurt you.** You won't need any significant change. It'll just give life to those blank input fields, selects, radio buttons, check boxes,  so you dont have to type again and again each time you refresh the browser.
+
 ```javascript
-$( "form" ).fakify();
+$( "#myform" ).fakify();
 ```
 
 _Thats the way the magic happens_
@@ -48,14 +49,14 @@ _Thats the way the magic happens_
 ## Usage
 
 ```javascript
-$( "form" ).fakify();
+$( "#myform" ).fakify();
 ```
 
 ## Advanced usage
 ```javascript
-$('#form1').fakify({
-           "[applicant][name]": "name.fullname", // map name to the fullname in our database
-           "[customer][district]": ["Kathmandu", "Lalitpur", "Bhaktpur"], // add new datatype district to our database
+$('#myform').fakify({
+           "applicant[name]": "name.fullName", // map name to the fullname in our database
+           "customer[district]": ["Kathmandu", "Lalitpur", "Bhaktapur"], // add new datatype district to our database
            "except": ["country", "address_2", "website"] //don't assign values to the given fields
        });
 ```
@@ -80,7 +81,7 @@ $("#myform").fakify();
 
 **Advanced usage**
 ```html
-<form id="my_form" name="my_form" method="post">
+<form id="myform" name="my_form" method="post">
   <input id="customer_fname" name="customer[username]" type="text">
   <input id="customer_mname" name="customer[mname]" type="text">
   <input id="customer_lname" name="customer[lname]" type="text">
@@ -132,15 +133,12 @@ Faker.fetch('name.fullName'); // => 'Shyam Raj Basnet'
 ```javascript
 Faker.fetch('address.country'); // => 'Nepal'
 Faker.fetch('address.state'); // => 'Baglung'
-Faker.fetch('address.zip'); // => '12312'
+Faker.fetch('address.zip'); // => '46045'
 Faker.fetch('address.postCode'); // => '123'
 Faker.fetch('address.streetAddress'); // => 'JANE ROE 200 E MAIN ST PHOENIX AZ 85123 USA'
 Faker.fetch('address.stateAbbr'); // => 'AL'
 Faker.fetch('address.city'); // => 'Pokhara'
-Faker.fetch('address.phone'); // => '111-222-3333'
-Faker.fetch('address.extension'); // => '3456'
-Faker.fetch('address.faxNumber'); // => '444-555-5555'
-Faker.fetch('address.buildingNumber'); // => '123'
+Faker.fetch('address.buildingNumber'); // => '4297'
 ```
 
 **Company**
@@ -149,10 +147,10 @@ Faker.fetch('address.buildingNumber'); // => '123'
 Faker.fetch('company.name'); // => 'Can Do Coffee Distributors'
 Faker.fetch('company.website'); // => 'aliexpress.com'
 Faker.fetch('company.title'); // => 'A Separate Peace'
-Faker.fetch('company.description'); // => 'Artificial intelligence is no match for natural stupidity.'
+Faker.fetch('company.department'); // => 'RoR'
 ```
 
-**Peronal**
+**Personal**
 
 ```javascript
 Faker.fetch('personal.academic'); // => 'MBA'
@@ -168,4 +166,14 @@ Faker.fetch('domainName'); // => 'gmail.com'
 
 ```javascript
 Faker.fetch('business.creditCardNumbers'); // => '4111111111111111'
+```
+
+**Miscellaneous**
+
+```javascript
+Faker.fetch('phone'); // => '9842529593'
+Faker.fetch('extension'); // => '0710'
+Faker.fetch('faxNumber'); // => '021-837-0251'
+Faker.fetch(''); // => 'The last thing I want to do is insult you. But it IS on the list.'
+Faker.fetch(); // => 'Letting the cat out of the bag is a whole lot easier than putting it back in.'
 ```
