@@ -25,14 +25,14 @@
           phone: ['cell_phone', 'phone', 'phone_number'],
           extension: ['extension', 'ext'],
           faxNumber: ['fax_number', 'fax'],
-          buildingNumber: ['building_number'],
-          department: ['department']
+          buildingNumber: ['building_number']
         },
         company: {
           name: ['company_name', 'c_name', 'organization_name', 'name'],
           website: ['url', 'website', 'web_address', 'web-address'],
           title: ['title'],
-          description: ['description', 'desc']
+          description: ['description', 'desc'],
+          department: ['department']
         },
         personal: {
           academic: ['academic', 'education', 'qualification']
@@ -275,8 +275,7 @@ $.fakifyDictionary = {
                         'JANE ROE 200 E MAIN ST PHOENIX AZ 85123 USA',
                         'JOHN SMITH 300 BOYLSTON AVE E SEATTLE WA 98102 USA'],
         stateAbbr: ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT'],
-        city: ['Bhaktapur', 'Biratnagar', 'Birendranagar', 'Birgunj', 'Butwal', 'Damak', 'Dharan', 'Gaur', 'Gorkha', 'Hetauda', 'Itahari', 'Janakpur', 'Kathmandu', 'Lahan', 'Nepalgunj', 'Pokhara'],
-        department: ['RoR', 'JAVA', 'PHP', 'Front End', 'UI/UX', 'Finance', 'HR']
+        city: ['Bhaktapur', 'Biratnagar', 'Birendranagar', 'Birgunj', 'Butwal', 'Damak', 'Dharan', 'Gaur', 'Gorkha', 'Hetauda', 'Itahari', 'Janakpur', 'Kathmandu', 'Lahan', 'Nepalgunj', 'Pokhara']
     },
     company: {
         name: ['Advanced Business Analysis', 'Advocate Services', 'African Internet Solutions.',
@@ -289,12 +288,13 @@ $.fakifyDictionary = {
                       'The last thing I want to do is insult you. But it IS on the list.',
                       'I don\'t have a solution, but I do admire the problem.',
                       'Letting the cat out of the bag is a whole lot easier than putting it back in.',
-                      'If at first you don\'t succeed, redefine success.']
+                      'If at first you don\'t succeed, redefine success.'],
+      department: ['RoR', 'JAVA', 'PHP', 'Front End', 'UI/UX', 'Finance', 'HR']
     },
     personal: {
         academic: ['MBA', 'BBA', 'SLC', 'BE', 'BA', 'CA', 'BBS', 'ME']
     },
-    domainName: ['gmail.con', 'yahoo.com', 'hotmail.com'],
+    domainName: ['gmail.com', 'yahoo.com', 'hotmail.com'],
     business: {
         creditCardNumbers: ['378282246310005', '371449635398431', '378734493671000', '5610591081018250',
           '30569309025904', '38520000023237', '6011111111111117', '6011000990139424', '3530111333300000',
