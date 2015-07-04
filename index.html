@@ -32,31 +32,27 @@
 <a id="demo" class="anchor" href="#demo" aria-hidden="true"><span class="octicon octicon-link"></span></a>Demo</h2>
 
 <form id="form" name="form">
-  <input id="customer_fname" name="customer[username]" type="text"><br/><br/>
-  <input id="customer_mname" name="customer[mname]" type="text"><br><br>
-  <input id="customer_lname" name="customer[lname]" type="text"><br><br>
-  <input id="customer_email" name="customer[email]" type="text"><br><br>
-  <input id="customer_state" name="customer[state]" type="text"><br><br>
-  <input id="customer_city" name="customer[city]" type="text"><br><br>
-  <input id="customer_country" name="customer[country]" type="text"><br><br>
-  <input id="customer_address_1" name="customer[address_1]" type="text"><br><br>
-  <input type="checkbox" name="vehicle" value="Bike">I have a bike<br>
-  <input type="checkbox" name="vehicle" value="Car">I have a car<br>
-  <input type="checkbox" name="vehicle" value="Bike">I have a bus<br>
-  <input type="checkbox" name="vehicle" value="Car">I have a Radio<br>
-  <input type="radio" name="radioGroup" value="1"> One</input><br>
-  <input type="radio" name="radioGroup" value="2"> Two</input><br>
-  <input type="radio" name="radioGroup" value="3"> Three</input><br>
-  <input type="radio" name="radioGroup" value="4"> Four</input><br>
-  <br><br>
-  <select>
+  <table>
+  <tr><td><label></label></td><td><input id="customer_fname" name="customer[fname]" type="text"></td></tr>
+  <tr><td><label></label></td><td><input id="customer_lname" name="customer[lname]" type="text"></td></tr>
+  <tr><td><label></label></td><td><input id="customer_email" name="customer[email]" type="text"></td></tr>
+  <tr><td><label></label></td><td><input id="customer_city" name="customer[city]" type="text"></td></tr>
+  <tr><td><label></label></td><td><input id="customer_country" name="customer[country]" type="text"></td></tr>
+  <tr><td colspan="2"><input type="checkbox" name="vehicle" value="Bike">I have a bike
+  <input type="checkbox" name="vehicle" value="Car">I have a car
+  <input type="checkbox" name="vehicle" value="Bike">I have a bus</td></tr>
+  <tr><td colspan="2"><input type="radio" name="radioGroup" value="1"> One</input>
+  <input type="radio" name="radioGroup" value="2"> Two</input>
+  <input type="radio" name="radioGroup" value="3"> Three</input></td></tr>
+  <tr><td colspan="2"><td><select>
     <option value="default" disabled="disabled">Select one--</option>
     <option value="volvo">Volvo</option>
     <option value="saab">Saab</option>
     <option value="mercedes">Mercedes</option>
     <option value="audi">Audi</option>
-  </select>
-
+  </select></td></tr>
+  <tr><td colspan="2"><input type="submit" value="Submit"></td></tr>
+  </table>
 </form>
 
 <h2>
