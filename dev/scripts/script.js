@@ -3,6 +3,6 @@
  */
 ;(function () {
   $(document).ready(function () {
-    $('#form').fakify( );
+    $('#form').fakify();
   });
 })();
