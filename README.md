@@ -131,10 +131,10 @@ Faker.fetch('name.fullName'); // => 'Shyam Raj Basnet'
 
 ```javascript
 Faker.fetch('address.country'); // => 'Nepal'
-Faker.fetch('address.state'); // => 'Alaska'
+Faker.fetch('address.state'); // => 'Baglung'
 Faker.fetch('address.zip'); // => '12312'
 Faker.fetch('address.postCode'); // => '123'
-Faker.fetch('address.streetAddress'); // => '282 Kevin Brook'
+Faker.fetch('address.streetAddress'); // => 'JANE ROE 200 E MAIN ST PHOENIX AZ 85123 USA'
 Faker.fetch('address.stateAbbr'); // => 'AL'
 Faker.fetch('address.city'); // => 'Pokhara'
 Faker.fetch('address.phone'); // => '111-222-3333'
@@ -146,10 +146,10 @@ Faker.fetch('address.buildingNumber'); // => '123'
 **Company**
 
 ```javascript
-Faker.fetch('company.name'); // => 'Global IME'
-Faker.fetch('company.website'); // => 'a.com'
-Faker.fetch('company.title'); // => 'Lorem Ipsum'
-Faker.fetch('company.description'); // => 'Lorem Description'
+Faker.fetch('company.name'); // => 'Can Do Coffee Distributors'
+Faker.fetch('company.website'); // => 'aliexpress.com'
+Faker.fetch('company.title'); // => 'A Separate Peace'
+Faker.fetch('company.description'); // => 'Artificial intelligence is no match for natural stupidity.'
 ```
 
 **Peronal**
@@ -162,4 +162,10 @@ Faker.fetch('personal.academic'); // => 'MBA'
 
 ```javascript
 Faker.fetch('domainName'); // => 'gmail.com'
+```
+
+**Business**
+
+```javascript
+Faker.fetch('business.creditCardNumbers'); // => '4111111111111111'
 ```
