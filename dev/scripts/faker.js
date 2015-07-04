@@ -87,7 +87,7 @@
 
 
             var selectTagArray = $('#' + $this.id + ' select');
-            $.each(selectTagArray, function(index, element){
+            $.each(selectTagArray, function(){
                 this.selectedIndex = Faker.randInt(this.children.length-1, 1);
             });
 
