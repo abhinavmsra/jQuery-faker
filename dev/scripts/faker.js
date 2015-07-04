@@ -1,5 +1,4 @@
-;
-(function ($, window, document, undefined) {
+;(function ($, window, document, undefined) {
     'use strict';
     $.fn.fakify = function (options) {
         var $this = this[0];
@@ -211,8 +210,7 @@ Faker.randInt = function (max, min) {
  * @return [Boolean]
  */
 Faker.randBool = function () {
-    return !(+new Date() % 2);
-    ;
+    return (Faker.randInt(100,0) % 2 === 0 );
 };
 
 $.fakifyDictionary = {
