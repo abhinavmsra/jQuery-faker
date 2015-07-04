@@ -2,7 +2,7 @@
 
 [![Code Climate](https://codeclimate.com/github/abhinavmsra/jQuery-faker/badges/gpa.svg)](https://codeclimate.com/github/abhinavmsra/jQuery-faker)
 
-A jquery plugin that generates the fake data for the developer to use during the development time. It actually generates the test data for the developer rather than having to type to regenerate the similar data to test the same business logic.
+A jQuery plugin that generates the fake data for the developer to use during the development time. It actually generates the test data for the developer rather than having to type to regenerate the similar data to test same business logic.
 
 Works with all major browsers.
 
@@ -12,9 +12,9 @@ http://abhinavmsra.github.io/jQuery-faker
 
 ## Features
 
-* **Automatic data generation for the forms**
-* Detects the input type and adds random relevant values.
-* Supports randomization of radio button, check box, select box
+* Automatic data generation for the forms
+* Detects the input type and adds random relevant values
+* Supports randomization of radio button, check box and select box
 * Customized data type for user convenience
 * Add new data and data types
 * Restrict data to user defined values for each data types
@@ -25,24 +25,24 @@ http://abhinavmsra.github.io/jQuery-faker
 
 * Add regular expression match for more magic
 * Make even better internal knowledge base for even more magic
-* Allow custom field to be created based on datatype only, no need to define the data itself
+* Allow custom field to be created based on data type only, no need to define the data itself
 * Allow users to switch to bug mode where incorrect data is fed to the fields to check the vulnerabilities
 * Automatic disable in production environment
 * Auto detect confirmation fields
-* Support minimum and maximum values for numerical/date data-types
+* Support minimum and maximum values for numerical/date data types
 * Match with multiple input attributes
 
 ## Why do I need this?
 
-**Because all the other faker plugins are just fakes.** Not all plugins gave the automation we seeked, we had to map each of our input fields to the data, and some even didnt gave random data. We found some browser plugins but we needed to setup different browser extensions which is much tedious.
+**Because all the other faker plugins are just fake.** Not all plugins gave the automation we seek, we had to map each of our input fields to the data, and some even didn't gave random data. We found some browser plugins but we needed to setup different browser extensions which is much tedious.
 
-**Adding it wont hurt you.** You won't need any significant change. It'll just give life to those blank input fields, selects, radio buttons, check boxes,  so you dont have to type again and again each time you refresh the browser.
+**Adding it won't hurt you.** You won't need any significant change. It'll just give life to those blank input fields, selects, radio buttons and checkboxes. So, you don't have to type again and again each time you refresh the browser.
 
 ```javascript
 $( "#myform" ).fakify();
 ```
 
-_Thats the way the magic happens_
+_That's the way the magic happens_
 
 
 
@@ -55,9 +55,9 @@ $( "#myform" ).fakify();
 ## Advanced usage
 ```javascript
 $('#myform').fakify({
-           "applicant[name]": "name.fullName", // map name to the fullname in our database
-           "customer[district]": ["Kathmandu", "Lalitpur", "Bhaktapur"], // add new datatype district to our database
-           "except": ["country", "address_2", "website"] //don't assign values to the given fields
+           "applicant[name]": "name.fullName", // maps name to the fullName in our database
+           "customer[district]": ["Kathmandu", "Lalitpur", "Bhaktapur"], // adds a new datatype district to our database
+           "except": ["country", "address_2", "website"] // doesn't assign values to the given fields
        });
 ```
 
@@ -111,10 +111,10 @@ $("#myform").fakify();
 
 ```javascript
 $("#myform").fakify({
-  "except": ["customer[mname]","city"], // Keep mname and city from autogenerating
-  "customer[address_1]": "address.streetAddress", // Map address_1 field to street_address
-  "customer[nick_name]": ["Chaure", "Dalley", "Daure", "Bhyagute", "Gole"] // add custom datatype along with the data
-  "customer[country]": ["Nepal", "China"] // restrict country data type to "Nepal" and "china" only
+  "except": ["customer[mname]","city"], // keeps mname and city from auto generating
+  "customer[address_1]": "address.streetAddress", // maps address_1 field to street_address
+  "customer[nick_name]": ["Chaure", "Dalley", "Daure", "Bhyagute", "Gole"] // adds custom datatype along with the data
+  "customer[country]": ["Nepal", "China"] // restricts country data type to "Nepal" and "China" only
 });
 ```
 
