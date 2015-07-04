@@ -36,7 +36,7 @@
                 email: ['email', 'mailto', 'free_email', 'internet_email']
             };
             var recurse = function (mappedKey, element, key, val) {
-                if ($.type(val) === 'array') {
+                if (val.constructor === Array) {
                     if ($.inArray(formatName(element.name), val) >= 0) {
                         mappedKey += key;
                         $('[name="' + element.name + '"]').val(Faker.fetch(mappedKey));
