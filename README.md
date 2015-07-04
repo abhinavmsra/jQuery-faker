@@ -177,3 +177,7 @@ Faker.fetch('faxNumber'); // => '021-837-0251'
 Faker.fetch(''); // => 'The last thing I want to do is insult you. But it IS on the list.'
 Faker.fetch(); // => 'Letting the cat out of the bag is a whole lot easier than putting it back in.'
 ```
+
+## Running the tests
+
+Just open `test/lib/SpecRunner.html` on your browser and that's it.
