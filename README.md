@@ -1,6 +1,7 @@
 # jQuery-Faker
 
 [![Code Climate](https://codeclimate.com/github/abhinavmsra/jQuery-faker/badges/gpa.svg)](https://codeclimate.com/github/abhinavmsra/jQuery-faker)
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/bipashant/jquery-faker/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
 A jQuery plugin that generates the fake data for the developer to use during the development time. It actually generates the test data for the developer rather than having to type to regenerate the similar data to test same business logic.
 
