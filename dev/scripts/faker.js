@@ -35,9 +35,9 @@
                 personal: {
                     academic: ['academic', 'education', 'qualification']
                 },
-                email: ['email', 'mailto', 'free_email', 'internet_email', 'mailTo', 'freeEmail', 'internetEmail'],
+                email: ['email', 'mailto', 'free_email', 'internet_email', 'mailTo', 'freeemail', 'internetemail'],
                 business: {
-                    creditCardNumbers: ['credit_card', 'creditCard']
+                    creditCardNumbers: ['credit_card', 'creditcard']
                 },
                 phone: ['cell_phone', 'phone', 'phone_number'],
                 extension: ['extension', 'ext'],
@@ -53,7 +53,7 @@
              * */
             var formatName = function (name) {
                 var token = name.substring(name.lastIndexOf("[") + 1, name.lastIndexOf("]"));
-                return token ? token : name;
+                return token ? token.toLowerCase() : name.toLowerCase();
             };
 
             /*
