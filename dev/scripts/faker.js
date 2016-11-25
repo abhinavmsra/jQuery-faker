@@ -2,7 +2,6 @@
 (function ($, window, document, undefined) {
     'use strict';
     $.fn.fakify = function (options) {
-        var $this = this[0];
         return this.each(function () {
 
             /*
@@ -113,7 +112,7 @@
              * Iterates over the non-hidden text form elements
              * and tries to assign a bestMatch value to it based on it's name
              * */
-            $('#' + $this.id + ' input:text[type!=hidden]').each(function () {
+            $(this).find('input:text[type!=hidden]').each(function () {
                 if (($.inArray(formatName(this.name), excludeOption) < 0) && ($.inArray(this.name, specifiedOption) < 0)) {
 
                     $.each(faker, recurse.bind(null, '', this));
@@ -124,7 +123,7 @@
              * Iterates over the checkbox form elements
              * and tries to check a random number of checkboxes
              * */
-            var checkBoxArray = $('#' + $this.id + ' input:checkbox');
+            var checkBoxArray = $(this).find('input:checkbox');
             $.each(checkBoxArray, function () {
                 $(this).prop('checked', Faker.randBool());
             });
@@ -133,14 +132,14 @@
              * Iterates over the radio form elements
              * and tries to check a single radio element
              * */
-            var radioArray = $('#' + $this.id + ' input:radio');
+            var radioArray = $(this).find('input:radio');
             $(radioArray[Faker.randInt(radioArray.length - 1, 0)]).attr('checked', true);
 
             /*
              * Iterates over the select options
              * and tries to select a random option
              * */
-            var selectTagArray = $('#' + $this.id + ' select');
+            var selectTagArray = $(this).find('select');
             $.each(selectTagArray, function () {
                 this.selectedIndex = Faker.randInt(this.children.length - 1, 1);
             });
