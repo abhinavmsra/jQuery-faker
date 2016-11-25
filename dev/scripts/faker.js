@@ -12,7 +12,7 @@
              * */
             var faker = {
                 name: {
-					fullName: ['fullname', 'full_name'],
+                    fullName: ['fullname', 'full_name'],
                     firstName: ['f_name', 'fname', 'first_name', 'firstname', 'fstname'],
                     middleName: ['m_name', 'mname', 'middle_name', 'middlename'],
                     lastName: ['l_name', 'lname', 'last_name', 'lastname', 'lstname']
