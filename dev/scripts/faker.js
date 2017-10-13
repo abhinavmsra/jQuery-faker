@@ -104,7 +104,6 @@
 
                     if (key === 'except' && value.constructor === Array) {
                         excludeOption = value;
-                        debugger;
                     }
                 });
             }
@@ -257,7 +256,6 @@ function Faker() {
  *  @return [String], bestMatch to fill the form
  * */
 Faker.fetch = function (key, domain) {
-    debugger;
     var objFaker = new Faker();
     if (!key) {
         key = 'notFound';
